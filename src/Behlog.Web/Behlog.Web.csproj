@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Behlog.Cms.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\cms\src\Behlog.Cms.Domain\bin\Debug\net6.0\Behlog.Cms.Domain.dll</HintPath>
+      </Reference>
+      <Reference Include="Behlog.Cms.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\cms\src\Behlog.Cms.EntityFrameworkCore\bin\Debug\net6.0\Behlog.Cms.EntityFrameworkCore.dll</HintPath>
+      </Reference>
+      <Reference Include="Behlog.Cms.EntityFrameworkCore.SQLite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\cms\src\Behlog.Cms.EntityFrameworkCore.SQLite\bin\Debug\net6.0\Behlog.Cms.EntityFrameworkCore.SQLite.dll</HintPath>
+      </Reference>
+      <Reference Include="Behlog.Cms.Resources, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\cms\src\Behlog.Cms.Resources\bin\Debug\net6.0\Behlog.Cms.Resources.dll</HintPath>
+      </Reference>
+      <Reference Include="Behlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\core\src\bin\Debug\net6.0\Behlog.Core.dll</HintPath>
+      </Reference>
+
+      <Reference Include="Idyfa.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\..\Idyfa\src\Idyfa.Core\bin\Debug\net6.0\Idyfa.Core.dll</HintPath>
+      </Reference>
+      
+      <Reference Include="Idyfa.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\..\Idyfa\src\Idyfa.EntityFrameworkCore\bin\Debug\net6.0\Idyfa.EntityFrameworkCore.dll</HintPath>
+      </Reference>
+      <Reference Include="Idyfa.EntityFrameworkCore.SQLite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\..\Idyfa\src\Idyfa.EntityFrameworkCore.SQLite\bin\Debug\net6.0\Idyfa.EntityFrameworkCore.SQLite.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8" />
+        <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+    </ItemGroup>
+
+</Project>
