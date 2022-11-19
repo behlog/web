@@ -1,3 +1,5 @@
+using System.Reflection;
+using Behlog.Cms.Domain;
 using Behlog.Core.Models;
 using Idyfa.Core;
 
@@ -6,36 +8,48 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddOptions();
-var basePath = Directory.GetCurrentDirectory();
-Console.WriteLine($"Using '{basePath}' as the root.");
-var configuration = new ConfigurationBuilder()
-    .SetBasePath(basePath)
-    .AddJsonFile("appsettings.json", false, reloadOnChange: true)
+IConfiguration config = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .AddEnvironmentVariables()
     .Build();
 
-builder.Services.AddSingleton<IConfigurationRoot>(provider => configuration);
-builder.Services.Configure<IdyfaConfigRoot>(options => configuration.Bind(options));
+var idyfaOptions = config.Get<IdyfaConfigRoot>().Idyfa;
+var behlogOptions = config.Get<BehlogOptions>();
 
-builder.Services.AddIdyfaCore();
-builder.Services.AddIdyfaEntityFrameworkCore();
-builder.Services.AddIdyfaSQLiteDatabase(new IdyfaDbConfigItem
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
 {
-    Name = "BehlogDb",
-    Timeout = 3000,
-    ConnectionString = "Data Source=Behlog.db;"
+    options.IdleTimeout = TimeSpan.FromMinutes(20);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
 });
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+var sqliteCfg = idyfaOptions.IdyfaDbConfig.Databases.FirstOrDefault(_ =>
+    _.Name.Equals("SQLite", StringComparison.InvariantCultureIgnoreCase));
+builder.Services.AddIdyfaSQLiteDatabase(sqliteCfg);
+builder.Services.AddIdyfaEntityFrameworkCore();
+builder.Services.AddIdyfaCore(idyfaOptions);
+
+var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+builder.Services.AddBehlogManager(new List<Assembly>
+{
+    Assembly.GetAssembly(typeof(Website))!
+});
+builder.Services.AddBehlogMiddleware(new List<Assembly>
+{
+    Assembly.GetAssembly(typeof(Website))!
+});
+
 builder.Services.AddBehlogCore();
-builder.Services.AddBehlogCMS();
-builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(
-    new BehlogDbConfig
-    {
-        DbName = "BehlogDb",
-        Timeout = 3000,
-        ConnectionString = "Data Source=Behlog.db;"
-    });
+builder.Services.AddBehlogManager();
+builder.Services.AddBehlogMiddleware();
+builder.Services.AddBehlogCms();
+builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
 builder.Services.AddBehlogCmsEntityFrameworkCoreReadStores();
 builder.Services.AddBehlogCmsEntityFrameworkCoreWriteStores();
 
+builder.Services.AddAuthorization().AddAuthentication();
 
 var app = builder.Build();
 
@@ -51,9 +65,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.UseEndpoints(endpoints => {
+    endpoints.MapControllers();
+});
 
 app.Run();
