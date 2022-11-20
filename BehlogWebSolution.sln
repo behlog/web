@@ -4,6 +4,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FF5AD603-4C2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behlog.Web", "src\Behlog.Web\Behlog.Web.csproj", "{F2484E96-763C-426A-98B0-4974E77B725A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behlog.Web.Services", "src\Behlog.Web.Services\Behlog.Web.Services.csproj", "{990F1186-0188-4084-B885-0A7320AFA294}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behlog.Web.Models", "src\Behlog.Web.Models\Behlog.Web.Models.csproj", "{4F307D0D-9071-4ACA-B7FB-31528C890C3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,11 +15,21 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F2484E96-763C-426A-98B0-4974E77B725A} = {FF5AD603-4C2E-4CD4-B3C0-7AA1150F6D9E}
+		{990F1186-0188-4084-B885-0A7320AFA294} = {FF5AD603-4C2E-4CD4-B3C0-7AA1150F6D9E}
+		{4F307D0D-9071-4ACA-B7FB-31528C890C3E} = {FF5AD603-4C2E-4CD4-B3C0-7AA1150F6D9E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F2484E96-763C-426A-98B0-4974E77B725A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F2484E96-763C-426A-98B0-4974E77B725A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2484E96-763C-426A-98B0-4974E77B725A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2484E96-763C-426A-98B0-4974E77B725A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{990F1186-0188-4084-B885-0A7320AFA294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990F1186-0188-4084-B885-0A7320AFA294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990F1186-0188-4084-B885-0A7320AFA294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990F1186-0188-4084-B885-0A7320AFA294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F307D0D-9071-4ACA-B7FB-31528C890C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F307D0D-9071-4ACA-B7FB-31528C890C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F307D0D-9071-4ACA-B7FB-31528C890C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F307D0D-9071-4ACA-B7FB-31528C890C3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

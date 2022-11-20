@@ -34,12 +34,12 @@ public class IndexModel : PageModel
         // var result = await _manager.PublishAsync(cmd).ConfigureAwait(false);
         //
         //
-        // var command = new CreateWebsiteCommand(
-        //     "Behlog", "Behlog - OpenSource Perisan Content Management System (CMS)",
-        //     "Behlog", "Behlog, CMS", "http://behlog.ir", "sdsadas",
-        //     PersianLanguage.Id, null, false, "hi@behlog.ir", "(c) 2022 Behlog");
-        //
-        // var website = await _manager.PublishAsync(command).ConfigureAwait(false);
+        var command = new CreateWebsiteCommand(
+            "Behlog", "Behlog - OpenSource Perisan Content Management System (CMS)",
+            "Behlog", "Behlog, CMS", "http://behlog.ir", "sdsadas",
+            PersianLanguage.Id, null, false, "hi@behlog.ir", "(c) 2022 Behlog");
+        
+        var website = await _manager.PublishAsync(command).ConfigureAwait(false);
         
         
     }

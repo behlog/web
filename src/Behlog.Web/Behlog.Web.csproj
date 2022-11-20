@@ -51,4 +51,15 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controllers" />
+      <Folder Include="Pages\Themes" />
+      <Folder Include="wwwroot\themes\default" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Behlog.Web.Models\Behlog.Web.Models.csproj" />
+      <ProjectReference Include="..\Behlog.Web.Services\Behlog.Web.Services.csproj" />
+    </ItemGroup>
+
 </Project>

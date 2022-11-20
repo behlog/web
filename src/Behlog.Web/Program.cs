@@ -1,12 +1,16 @@
 using System.Reflection;
 using Behlog.Cms.Domain;
 using Behlog.Core.Models;
+using Behlog.Web.Models.Identity;
+using Behlog.Web.Services;
 using Idyfa.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddMvcCore().AddControllersAsServices();
+builder.Services.AddControllersWithViews();
 builder.Services.AddOptions();
 IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
@@ -44,6 +48,12 @@ var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 builder.Services.AddBehlogCore();
 // builder.Services.AddBehlogManager();
 // builder.Services.AddBehlogMiddleware();
+builder.Services.AddBehlogManager(new[]
+{
+    typeof(RegisterUserCommand).Assembly,
+    typeof(UserIdentityCommandHandler).Assembly,
+    typeof(Website).Assembly
+});
 builder.Services.AddBehlogCms();
 builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
 builder.Services.AddBehlogCmsEntityFrameworkCoreReadStores();
@@ -63,7 +73,6 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

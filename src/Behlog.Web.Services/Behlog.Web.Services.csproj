@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Behlog.Cms.Domain">
+        <HintPath>..\..\..\cms\src\Behlog.Cms.Domain\bin\Debug\net6.0\Behlog.Cms.Domain.dll</HintPath>
+      </Reference>
+      <Reference Include="Behlog.Core">
+        <HintPath>..\..\..\core\src\bin\Debug\net6.0\Behlog.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Idyfa.Core">
+        <HintPath>..\..\..\..\Idyfa\src\Idyfa.Core\bin\Debug\net6.0\Idyfa.Core.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Behlog.Web.Models\Behlog.Web.Models.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.0" />
+    </ItemGroup>
+
+</Project>
