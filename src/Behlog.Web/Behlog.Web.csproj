@@ -52,6 +52,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Areas\Identity" />
       <Folder Include="Controllers" />
       <Folder Include="Pages\Themes" />
       <Folder Include="wwwroot\themes\default" />

@@ -1,0 +1,32 @@
+@model Behlog.Web.Models.LoginUserCommand
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div>
+    
+    <form id="myform" method="post" asp-controller="Login" asp-action="Index" asp-area="Identity"  
+          enctype="application/x-www-form-urlencoded">
+        
+        <div>
+            <label asp-for="UserName">UserName: </label>
+            <input class="form-control" asp-for="UserName" placeholder="UserName..." />
+        </div>
+        
+        <div>
+            <label asp-for="Password">Password: </label>
+            <input class="form-control" asp-for="Password" type="password" placeholder="Password..." />
+        </div>
+        
+        <div>
+            <label asp-for="RememberMe">Remember?</label>
+            <input asp-for="RememberMe" type="checkbox" class="form-check-input btn-check" />
+        </div>
+        
+        <div class="form-action">
+            <button class="btn btn-success" type="submit">Submit form</button>
+        </div>
+    </form>
+    
+</div>

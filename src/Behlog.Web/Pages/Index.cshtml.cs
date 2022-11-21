@@ -12,13 +12,13 @@ namespace Behlog.Web.Pages;
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    private readonly IBehlogManager _manager;
+    private readonly IBehlogMediator _mediator;
     private readonly IIdyfaUserManager _userManager;
 
-    public IndexModel(ILogger<IndexModel> logger, IBehlogManager manager, IIdyfaUserManager userManager)
+    public IndexModel(ILogger<IndexModel> logger, IBehlogMediator mediator, IIdyfaUserManager userManager)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        _manager = manager ?? throw new ArgumentException(nameof(manager));
+        _mediator = mediator ?? throw new ArgumentException(nameof(mediator));
         _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
     }
 
@@ -39,7 +39,7 @@ public class IndexModel : PageModel
             "Behlog", "Behlog, CMS", "http://behlog.ir", "sdsadas",
             PersianLanguage.Id, null, false, "hi@behlog.ir", "(c) 2022 Behlog");
         
-        var website = await _manager.PublishAsync(command).ConfigureAwait(false);
+        var website = await _mediator.PublishAsync(command).ConfigureAwait(false);
         
         
     }

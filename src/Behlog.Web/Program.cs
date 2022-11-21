@@ -1,9 +1,8 @@
-using System.Reflection;
 using Behlog.Cms.Domain;
+using Idyfa.Core;
 using Behlog.Core.Models;
 using Behlog.Web.Models.Identity;
 using Behlog.Web.Services;
-using Idyfa.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,20 +33,9 @@ builder.Services.AddIdyfaSQLiteDatabase(sqliteCfg);
 builder.Services.AddIdyfaEntityFrameworkCore();
 builder.Services.AddIdyfaCore(idyfaOptions);
 
-var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-// builder.Services.AddBehlogManager(new List<Assembly>
-// {
-//     Assembly.GetAssembly(typeof(Website))!
-// });
-// builder.Services.AddBehlogMiddleware(new List<Assembly>
-// {
-//     Assembly.GetAssembly(typeof(Website))!
-// });
-
 builder.Services.AddBehlogCore();
-// builder.Services.AddBehlogManager();
-// builder.Services.AddBehlogMiddleware();
+builder.Services.AddBehlogManager();
+builder.Services.AddBehlogMiddleware();
 builder.Services.AddBehlogManager(new[]
 {
     typeof(RegisterUserCommand).Assembly,
@@ -58,6 +46,8 @@ builder.Services.AddBehlogCms();
 builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
 builder.Services.AddBehlogCmsEntityFrameworkCoreReadStores();
 builder.Services.AddBehlogCmsEntityFrameworkCoreWriteStores();
+
+builder.Services.AddBehlogWebsite();
 
 builder.Services.AddAuthorization().AddAuthentication();
 

@@ -1,28 +1,22 @@
 @model Behlog.Web.Models.Identity.RegisterUserCommand
 @{
-    Layout = null;
     ViewData["Title"] = "User Registration";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>@ViewData["Title"] - Behlog CMS</title>
-</head>
-<body>
-<div>
+<div class="text-center">
     @if (Model.Success)
     {
-        <span style="color: green">Success</span>
+        <div class="alert alert-success">
+            <span style="color: green">Success</span>    
+        </div>
     }
     
     @if (Model.HasError)
     {
-        <span style="color: red">Error: @Model.ModelMessage </span>
+        <div class="alert alert-danger">
+            <span style="color: red">Error: @Model.ModelMessage </span>    
+        </div>
     }
-    
-    <br /><br /><br /><br /><br /><br />
     
     <form method="post" asp-area="Identity" asp-controller="Register" asp-action="Index">
         <div class="form-group">
@@ -46,11 +40,9 @@
             <input asp-for="LastName" class="form-control" placeholder="LastName..."/>
         </div>
         <div class="form-action">
-            <button type="submit">Send...</button>
-            <button type="reset">Reset form</button>
+            <button class="btn btn-success" type="submit">Send...</button>
+            <button class="btn btn-primary" type="reset">Reset form</button>
         </div>
     </form>
     
 </div>
-</body>
-</html>

@@ -12,7 +12,7 @@ public class RegisterUserCommand : BaseViewModel, IBehlogCommand<RegisterUserCom
     public string UserName { get; set; }
     
     [DataType(DataType.Password)]
-    public string Password { get; set; }
+    public string? Password { get; set; }
     
     [EmailAddress]
     [MaxLength(1000)]
