@@ -21,9 +21,21 @@ public class LoginController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var model = new LoginUserCommand();
-        return View(model);
+        var command = new LoginUserCommand();
+        return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Login.cshtml", command);
     }
-    
-    
+
+    [HttpPost, ValidateAntiForgeryToken]
+    public async Task<IActionResult> Index(LoginUserCommand command)
+    {
+        if (!ModelState.IsValid)
+        {
+            command.AddError("Model is not valid.");
+            return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Login.cshtml", command);
+        }
+
+        var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
+        
+        return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Login.cshtml", command);
+    }
 }

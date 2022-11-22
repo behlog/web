@@ -4,6 +4,8 @@ using Behlog.Web.Models;
 using Behlog.Web.Models.Identity;
 using Idyfa.Core;
 using Idyfa.Core.Contracts;
+using Idyfa.Core.Events;
+using Idyfa.Core.Exceptions;
 using Idyfa.Core.Extensions;
 
 namespace Behlog.Web.Services;
@@ -14,16 +16,23 @@ public class UserIdentityCommandHandler :
     IBehlogCommandHandler<LoginUserCommand, LoginUserCommand>
 {
     private readonly IIdyfaUserManager _userManager;
-    private readonly IIdyfaSignInManager _signInManager;
+    private readonly IAuthenticationManager _auth;
 
     public UserIdentityCommandHandler(
-        IIdyfaUserManager userManager, IIdyfaSignInManager signInManager)
+        IIdyfaUserManager userManager, IAuthenticationManager auth)
     {
         _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
-        _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
+        _auth = auth ?? throw new ArgumentNullException(nameof(auth));
+        _auth.AfterSignInEvent += OnAfterSignIn;
     }
 
-    
+    private void OnAfterSignIn(AfterSignInEventArgs args)
+    {
+        var loggedInUserName = args.UserName;
+        
+    }
+
+
     public async Task<RegisterUserCommand> HandleAsync(
         RegisterUserCommand command, CancellationToken cancellationToken = default)
     {
@@ -61,6 +70,33 @@ public class UserIdentityCommandHandler :
         {
             return command;
         }
+
+        try
+        {
+            await _auth.AuthenticateAsync(
+                command.UserName, command.Password, command.RememberMe, cancellationToken
+            ).ConfigureAwait(false);
+        }
+        catch (InvalidUserNameException ex)
+        {
+            command.AddError($"InvalidUserName : '{ex.Message}'");
+        }
+        catch (IdyfaUserNotFoundException)
+        {
+            command.AddError("User not found.");
+        }
+        catch (InvalidUserStatusForSignInException ex)
+        {
+            command.AddError($"The Status for the user is not valid because the current status is : {ex.UserStatus.ToString()}");
+        }
+        catch (IdyfaSignInRequireTwoFactorAuthenticationException ex)
+        {
+            command.RequireTwoFactorAuthentication = true;
+            return command;
+        }
         
+        if(!command.HasError) command.Succeed();
+        
+        return command;
     }
 }

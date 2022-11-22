@@ -36,7 +36,7 @@ public class RegisterController : Controller
         
         var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
 
-        return View("~/Views/default/Identity/Register.cshtml", command);
+        return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Register.cshtml", command);
     }
 
 
@@ -48,6 +48,5 @@ public class RegisterController : Controller
     }
     
     
-
     #endregion
 }
