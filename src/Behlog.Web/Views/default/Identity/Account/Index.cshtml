@@ -1,0 +1,27 @@
+@model AccountIndexModel
+
+@{
+    ViewData["Title"] = $"{Model.DisplayName}'s Account";
+}
+
+<div>
+    
+    <form id="myform" method="post" asp-controller="Account" asp-action="Index" asp-area="Identity"
+          enctype="application/x-www-form-urlencoded">
+        
+        <div>
+            <label asp-for="UserName">Id: </label>
+            <input class="form-control" asp-for="Id" placeholder="UserName..." readonly="readonly"/>
+        </div>
+        <div>
+            <label asp-for="UserName">UserName: </label>
+            <input class="form-control" asp-for="UserName" placeholder="UserName..." readonly="readonly"/>
+        </div>
+
+        <div>
+            <label asp-for="DisplayName">Password: </label>
+            <input class="form-control" asp-for="DisplayName" placeholder="Password..." readonly="readonly"/>
+        </div>
+    </form>
+    
+</div>

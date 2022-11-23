@@ -1,7 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using Behlog.Core;
-using Behlog.Core.Models;
-
 namespace Behlog.Web.Models;
 
 
@@ -15,7 +11,6 @@ public class LoginUserCommand : BaseViewModel, IBehlogCommand<LoginUserCommand>
     public string Password { get; set; }
     
     public bool RememberMe { get; set; }
-    
     
     public bool RequireTwoFactorAuthentication { get; set; }
 }
