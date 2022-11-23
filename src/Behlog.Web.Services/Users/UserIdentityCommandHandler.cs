@@ -16,10 +16,10 @@ public class UserIdentityCommandHandler :
     IBehlogCommandHandler<LoginUserCommand, LoginUserCommand>
 {
     private readonly IIdyfaUserManager _userManager;
-    private readonly IAuthenticationManager _auth;
+    private readonly IIdyfaAuthManager _auth;
 
     public UserIdentityCommandHandler(
-        IIdyfaUserManager userManager, IAuthenticationManager auth)
+        IIdyfaUserManager userManager, IIdyfaAuthManager auth)
     {
         _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         _auth = auth ?? throw new ArgumentNullException(nameof(auth));
