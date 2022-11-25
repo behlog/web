@@ -1,15 +1,20 @@
-using Behlog.Cms.Domain;
 using Idyfa.Core;
+using Behlog.Cms.Domain;
 using Behlog.Core.Models;
-using Behlog.Web.Models.Identity;
 using Behlog.Web.Services;
+using Behlog.Web.Models.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddLogging();
 builder.Services.AddMvcCore().AddControllersAsServices();
-builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllersWithViews()
+    .AddBehlogIdentityArea()
+    .AddBehlogSetupArea();
+
 builder.Services.AddOptions();
 IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
@@ -42,13 +47,12 @@ builder.Services.AddBehlogManager(new[]
     typeof(UserIdentityCommandHandler).Assembly,
     typeof(Website).Assembly
 });
+
 builder.Services.AddBehlogCms();
 builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
 builder.Services.AddBehlogCmsEntityFrameworkCoreReadStores();
 builder.Services.AddBehlogCmsEntityFrameworkCoreWriteStores();
-
-builder.Services.AddBehlogWebsite();
-
+builder.Services.AddBehlogWebCore(themeName: "default");
 builder.Services.AddAuthorization().AddAuthentication();
 
 var app = builder.Build();
@@ -70,6 +74,11 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.UseEndpoints(endpoints => {
     endpoints.MapControllers();
+    endpoints.AddBehlogSetupRoutes();
+    endpoints.AddBehlogIdentityRoutes();
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
 app.Run();

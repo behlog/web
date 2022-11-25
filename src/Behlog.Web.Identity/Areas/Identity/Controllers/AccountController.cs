@@ -2,7 +2,7 @@ using Idyfa.Core.Contracts;
 
 namespace Behlog.Web.Identity;
 
-[Area(BehlogWebsiteAreaNames.Identity)]
+[Area(WebsiteAreaNames.Identity)]
 [Route("[area]/account")]
 [Authorize]
 public class AccountController : Controller
@@ -38,7 +38,7 @@ public class AccountController : Controller
     private ViewResult _View(AccountIndexModel model)
     {
         return View(
-            $"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Account/Index.cshtml", 
+            $"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Account/Index.cshtml", 
             model);
     }
 

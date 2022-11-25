@@ -42,25 +42,27 @@
         <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Areas\Identity" />
-      <Folder Include="Controllers" />
+      <Folder Include="Areas" />
       <Folder Include="Pages\Themes" />
       <Folder Include="wwwroot\themes\default" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Behlog.Web.Core\Behlog.Web.Core.csproj" />
+      <ProjectReference Include="..\Behlog.Web.Identity\Behlog.Web.Identity.csproj" />
       <ProjectReference Include="..\Behlog.Web.Models\Behlog.Web.Models.csproj" />
       <ProjectReference Include="..\Behlog.Web.Services\Behlog.Web.Services.csproj" />
+      <ProjectReference Include="..\Behlog.Web.Setup\Behlog.Web.Setup.csproj" />
     </ItemGroup>
 
 </Project>

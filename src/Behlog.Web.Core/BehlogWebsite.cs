@@ -1,4 +1,4 @@
-namespace Behlog.Web.Application;
+namespace Behlog.Web.Core;
 
 public class BehlogWebsite
 {
@@ -10,18 +10,10 @@ public class BehlogWebsite
     
     public string Theme { get; private set; }
 
-    public static BehlogWebsiteAreaNames Areas => new();
+    public static WebsiteAreaNames Areas => new();
 
     public void SetTheme(string theme)
     {
         Theme = theme;
     }
-}
-
-
-public class BehlogWebsiteAreaNames
-{
-
-    public const string Identity = nameof(Identity);
-
 }

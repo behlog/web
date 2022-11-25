@@ -1,11 +1,7 @@
-using Behlog.Core;
-using Behlog.Web.Application;
-using Behlog.Web.Models;
-using Microsoft.AspNetCore.Mvc;
-
 namespace Behlog.Web.Identity;
 
-[Area(BehlogWebsiteAreaNames.Identity)]
+
+[Area(WebsiteAreaNames.Identity)]
 [Route("[area]/login")]
 public class LoginController : Controller
 {
@@ -22,7 +18,7 @@ public class LoginController : Controller
     public IActionResult Index()
     {
         var command = new LoginUserCommand();
-        return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Login.cshtml", command);
+        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", command);
     }
 
     [HttpPost, ValidateAntiForgeryToken]
@@ -31,11 +27,11 @@ public class LoginController : Controller
         if (!ModelState.IsValid)
         {
             command.AddError("Model is not valid.");
-            return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Login.cshtml", command);
+            return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", command);
         }
 
         var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
         
-        return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Login.cshtml", command);
+        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", command);
     }
 }

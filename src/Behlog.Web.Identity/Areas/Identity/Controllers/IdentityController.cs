@@ -1,6 +1,6 @@
 namespace Behlog.Web.Identity;
 
-[Area(BehlogWebsiteAreaNames.Identity)]
+[Area(WebsiteAreaNames.Identity)]
 [Route("[area]")]
 public class IdentityController : Controller
 {

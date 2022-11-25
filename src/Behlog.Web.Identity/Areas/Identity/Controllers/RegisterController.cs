@@ -1,8 +1,3 @@
-using Behlog.Core;
-using Behlog.Web.Application;
-using Behlog.Web.Models.Identity;
-using Microsoft.AspNetCore.Mvc;
-
 namespace Behlog.Web.Identity;
 
 [Area("Identity")]
@@ -36,7 +31,7 @@ public class RegisterController : Controller
         
         var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
 
-        return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Register.cshtml", command);
+        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", command);
     }
 
 
@@ -44,7 +39,7 @@ public class RegisterController : Controller
 
     private ViewResult _View(RegisterUserCommand command)
     {
-        return View($"~/Views/{_website.Theme}/{BehlogWebsiteAreaNames.Identity}/Register.cshtml", command);
+        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", command);
     }
     
     
