@@ -26,4 +26,8 @@ public class WebsiteSetupModel : BaseViewModel, IBehlogCommand<WebsiteSetupModel
     
     [MaxLength(1000)]
     public string CopyrightText { get; set; }
+    
+    
+    public string LangCode { get; set; }
+    
 }

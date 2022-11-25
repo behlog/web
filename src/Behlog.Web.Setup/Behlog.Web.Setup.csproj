@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
 
 
@@ -42,8 +43,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="Areas\Setup\Views\Home\Index.cshtml" />
-      <EmbeddedResource Include="Areas\Setup\Views\Home\Index.cshtml" />
+        <EmbeddedResource Include="Areas\Setup\Views\Home\Index.cshtml" />
+        <EmbeddedResource Include="Areas\Views\**\*.cshtml">
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </EmbeddedResource>
     </ItemGroup>
 
 </Project>

@@ -13,9 +13,14 @@ public static class ServiceProvider
     {
         var assembly = typeof(HomeController).Assembly;
         builder.AddApplicationPart(assembly)
-            .AddRazorRuntimeCompilation(
-                _=> _.FileProviders.Add(new EmbeddedFileProvider(assembly))
-                );
+            .AddRazorRuntimeCompilation(options =>
+            {
+                options.FileProviders.Add(new EmbeddedFileProvider(assembly));
+            })
+            .AddRazorOptions(engine =>
+            {
+            });
+        
         return builder;
     }
 

@@ -26,8 +26,21 @@ public class SetupWebsiteCommandHandlers :
             return model;
         }
 
-        await _setup.SetupAsync(new WebsiteSeedData(), cancellationToken).ConfigureAwait(false);
-
+        var seedData = new WebsiteSeedData
+        {
+            Name = model.Name?.Trim()!,
+            Title = model.Title?.Trim().CorrectYeKe()!,
+            Url = model.Url?.Trim()!,
+            Email = model.Email?.Trim().ToEnglishNumbers()!,
+            Description = model.Description?.CorrectYeKe()!,
+            Keywords = model.Keywords?.Trim().CorrectYeKe()!,
+            CopyrightText = model.CopyrightText?.Trim().CorrectYeKe()!,
+            LangCode = model.LangCode
+        };
+        
+        await _setup.SetupAsync(seedData, cancellationToken).ConfigureAwait(false);
+        
+        model.Succeed();
         return model;
     }
 }
