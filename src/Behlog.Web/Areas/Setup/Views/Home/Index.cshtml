@@ -1,0 +1,140 @@
+@model Behlog.Web.Models.WebsiteSetupModel
+
+@{
+    Layout = "~/Views/default/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2>Behlog Setup - CMS</h2>
+</div>
+
+<div class="container">
+    
+    @if (Model.Success)
+    {
+        <div class="alert alert-success">
+            <span style="color: green">Success</span>    
+        </div>
+    }
+    
+    @if (Model.HasError)
+    {
+        <div class="alert alert-danger">
+            <span style="color: red">Error: @Model.ModelMessage </span>    
+        </div>
+    }
+    
+    <form id="formSetup"
+          asp-controller="Home" asp-action="Index"
+          method="post">
+
+        <div class="form-group">
+            <label asp-for="Name" class="control-label col-md-3 col-sm-3 col-xs-12">
+                Name
+                <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input asp-for="Name" class="form-control" placeholder="نام منحصر به فرد"/>
+                <span asp-validation-for="Name"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Title" class="control-label col-md-3 col-sm-3 col-xs-12">
+                Title
+                <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input asp-for="Title" class="form-control" placeholder=""/>
+                <span asp-validation-for="Title"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="control-label col-md-3 col-sm-3 col-xs-12">
+                Website's Email
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input asp-for="Email" class="form-control" placeholder=""/>
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Url" class="control-label col-md-3 col-sm-3 col-xs-12">
+                Website's URL
+                <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input asp-for="Url" class="form-control" placeholder=""/>
+                <span asp-validation-for="Url"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Title" class="control-label col-md-3 col-sm-3 col-xs-12">
+                Description
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input asp-for="Description" class="form-control" placeholder=""/>
+                <span asp-validation-for="Description"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Keywords" class="control-label col-md-3 col-sm-3 col-xs-12">
+                Keywords
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input asp-for="Keywords" class="form-control" placeholder=""/>
+                <span asp-validation-for="Keywords"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CopyrightText" class="control-label col-md-3 col-sm-3 col-xs-12">
+                Copyright Text
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input asp-for="CopyrightText" class="form-control" placeholder=""/>
+                <span asp-validation-for="CopyrightText"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LangCode" class="control-label col-md-3 col-sm-3 col-xs-12">
+                Default Language
+                <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <select id="selectLang" asp-for="LangCode">
+                    <option value="fa">Farsi (fa)</option>
+                    <option value="en">English (en)</option>
+                </select>
+                <span asp-validation-for="LangCode"></span>
+            </div>
+        </div>
+
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-check"></i> Submit
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $('formSetup').submit(function() {
+            if ($(this).valid()) {
+                $(this).find(':submit').attr('disabled', 'disabled');
+            } 
+        });
+    </script>
+}
+

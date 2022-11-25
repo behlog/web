@@ -34,6 +34,9 @@
       <Reference Include="Idyfa.EntityFrameworkCore.SQLite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\..\Idyfa\src\Idyfa.EntityFrameworkCore.SQLite\bin\Debug\net6.0\Idyfa.EntityFrameworkCore.SQLite.dll</HintPath>
       </Reference>
+      <Reference Include="Idyfa.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\..\Idyfa\src\Idyfa.Extensions\bin\Debug\net6.0\Idyfa.Extensions.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
     <ItemGroup>
@@ -53,7 +56,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Areas" />
       <Folder Include="Pages\Themes" />
       <Folder Include="wwwroot\themes\default" />
     </ItemGroup>
@@ -64,6 +66,10 @@
       <ProjectReference Include="..\Behlog.Web.Models\Behlog.Web.Models.csproj" />
       <ProjectReference Include="..\Behlog.Web.Services\Behlog.Web.Services.csproj" />
       <ProjectReference Include="..\Behlog.Web.Setup\Behlog.Web.Setup.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Areas\Setup\Views\Home\Index.cshtml" />
     </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
-using Behlog.Cms.Contracts;
-using Behlog.Cms.Seed;
 using Behlog.Core;
+using Behlog.Cms.Seed;
 using Behlog.Extensions;
 using Behlog.Web.Models;
+using Behlog.Cms.Contracts;
 
 namespace Behlog.Web.Services;
 

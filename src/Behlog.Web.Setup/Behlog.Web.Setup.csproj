@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Areas\Setup\Views\Home\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Setup\_Views\Home\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -43,7 +43,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="Areas\Setup\Views\Home\Index.cshtml" />
+        <EmbeddedResource Include="Areas\Setup\_Views\Home\Index.cshtml" />
         <EmbeddedResource Include="Areas\Views\**\*.cshtml">
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </EmbeddedResource>
