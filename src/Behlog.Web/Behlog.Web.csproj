@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="Behlog.Cms.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\..\..\cms\src\Behlog.Cms.Domain\bin\Debug\net6.0\Behlog.Cms.Domain.dll</HintPath>
+      <Reference Include="Behlog.Cms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\cms\src\Behlog.Cms\bin\Debug\net6.0\Behlog.Cms.dll</HintPath>
       </Reference>
       <Reference Include="Behlog.Cms.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\cms\src\Behlog.Cms.EntityFrameworkCore\bin\Debug\net6.0\Behlog.Cms.EntityFrameworkCore.dll</HintPath>
