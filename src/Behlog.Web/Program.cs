@@ -38,7 +38,7 @@ builder.Services.AddIdyfaSQLiteDatabase(sqliteCfg);
 builder.Services.AddIdyfaEntityFrameworkCore();
 builder.Services.AddIdyfaCore(idyfaOptions);
 
-builder.Services.AddBehlogCore();
+builder.Services.AddBehlogCore(config);
 builder.Services.AddBehlogManager();
 builder.Services.AddBehlogMiddleware();
 builder.Services.AddBehlogManager(new[]
