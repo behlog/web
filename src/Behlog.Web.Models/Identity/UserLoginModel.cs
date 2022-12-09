@@ -1,7 +1,7 @@
 namespace Behlog.Web.Models;
 
 
-public class LoginUserCommand : BaseViewModel, IBehlogCommand<LoginUserCommand>
+public class LoginUserCommand : BaseViewModel
 {
     
     [Required]

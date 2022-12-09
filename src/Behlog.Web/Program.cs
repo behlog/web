@@ -1,7 +1,7 @@
 using Idyfa.Core;
 using Behlog.Cms.Domain;
 using Behlog.Core.Models;
-using Behlog.Web.Services;
+//using Behlog.Web.Services;
 using Behlog.Web.Models.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -44,7 +44,7 @@ builder.Services.AddBehlogMiddleware();
 builder.Services.AddBehlogManager(new[]
 {
     typeof(RegisterUserCommand).Assembly,
-    typeof(UserIdentityCommandHandler).Assembly,
+    //typeof(UserIdentityCommandHandler).Assembly,
     typeof(Website).Assembly
 });
 

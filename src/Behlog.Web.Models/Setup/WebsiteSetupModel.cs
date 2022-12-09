@@ -1,7 +1,7 @@
 namespace Behlog.Web.Models;
 
 
-public class WebsiteSetupModel : BaseViewModel, IBehlogCommand<WebsiteSetupModel>
+public class WebsiteSetupModel : BaseViewModel
 {
     [Required]
     [MaxLength(256)]
@@ -26,7 +26,6 @@ public class WebsiteSetupModel : BaseViewModel, IBehlogCommand<WebsiteSetupModel
     
     [MaxLength(1000)]
     public string CopyrightText { get; set; }
-    
     
     public string LangCode { get; set; }
     

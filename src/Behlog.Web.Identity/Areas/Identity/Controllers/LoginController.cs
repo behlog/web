@@ -30,7 +30,7 @@ public class LoginController : Controller
             return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", command);
         }
 
-        var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
+        //var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
         
         return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", command);
     }

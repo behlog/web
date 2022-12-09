@@ -34,11 +34,11 @@ public class HomeController : Controller
 
         if (!ModelState.IsValid)
         {
-            model.AddError("The Model is not valid");
+            //model.AddError("The Model is not valid");
             return View(model);
         }
 
-        await _mediator.PublishAsync(model).ConfigureAwait(false);
+        //await _mediator.PublishAsync(model).ConfigureAwait(false);
 
         return View(model);
     }

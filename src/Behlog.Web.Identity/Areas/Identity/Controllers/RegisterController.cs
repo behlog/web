@@ -29,7 +29,7 @@ public class RegisterController : Controller
             return _View(command);
         }
         
-        var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
+        //var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
 
         return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", command);
     }
