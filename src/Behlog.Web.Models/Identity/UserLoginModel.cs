@@ -1,9 +1,8 @@
 namespace Behlog.Web.Models;
 
 
-public class LoginUserCommand : BaseViewModel
+public class LoginUserModel : BaseViewModel
 {
-    
     [Required]
     public string UserName { get; set; }
     
@@ -11,6 +10,21 @@ public class LoginUserCommand : BaseViewModel
     public string Password { get; set; }
     
     public bool RememberMe { get; set; }
+}
+
+
+public class LoginUserCommand : IBehlogCommand<CommandResult>
+{
+    public LoginUserCommand(
+        string userName, string password, bool rememberMe)
+    {
+        UserName = userName;
+        Password = password;
+        RememberMe = rememberMe;
+    }
     
-    public bool RequireTwoFactorAuthentication { get; set; }
+    public string UserName { get; }
+    public string Password { get; }
+    public bool RememberMe { get; }
+    public bool RequireTwoFactorAuthentication { get; }
 }

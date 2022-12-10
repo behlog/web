@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behlog.Web.Identity", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behlog.Web.Setup", "src\Behlog.Web.Setup\Behlog.Web.Setup.csproj", "{EB72BD72-45B6-47D5-8572-4821293E1F4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behlog.Web.Resources", "src\Behlog.Web.Resources\Behlog.Web.Resources.csproj", "{B183907F-EB51-4CDD-8F59-99E8A8392DF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,7 @@ Global
 		{CEE6E44F-0DBF-4675-B760-E5AF2701294A} = {FF5AD603-4C2E-4CD4-B3C0-7AA1150F6D9E}
 		{28633E48-5B5C-4954-8BEE-BDF92C20EDD8} = {FF5AD603-4C2E-4CD4-B3C0-7AA1150F6D9E}
 		{EB72BD72-45B6-47D5-8572-4821293E1F4E} = {FF5AD603-4C2E-4CD4-B3C0-7AA1150F6D9E}
+		{B183907F-EB51-4CDD-8F59-99E8A8392DF2} = {FF5AD603-4C2E-4CD4-B3C0-7AA1150F6D9E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F2484E96-763C-426A-98B0-4974E77B725A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,5 +55,9 @@ Global
 		{EB72BD72-45B6-47D5-8572-4821293E1F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB72BD72-45B6-47D5-8572-4821293E1F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB72BD72-45B6-47D5-8572-4821293E1F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B183907F-EB51-4CDD-8F59-99E8A8392DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B183907F-EB51-4CDD-8F59-99E8A8392DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B183907F-EB51-4CDD-8F59-99E8A8392DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B183907F-EB51-4CDD-8F59-99E8A8392DF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

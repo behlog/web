@@ -17,21 +17,28 @@ public class LoginController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var command = new LoginUserCommand();
-        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", command);
+        var model = new LoginUserModel();
+        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
     }
 
     [HttpPost, ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index(LoginUserCommand command)
+    public async Task<IActionResult> Index(LoginUserModel model)
     {
         if (!ModelState.IsValid)
         {
-            command.AddError("Model is not valid.");
-            return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", command);
+            model.AddError("Model is not valid.");
+            return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
         }
 
-        //var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
+        var command = new LoginUserCommand(
+            model.UserName, model.Password, model.RememberMe);
         
-        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", command);
+        var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
+        if (result.HasError)
+        {
+            
+        }
+        
+        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
     }
 }

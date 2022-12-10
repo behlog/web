@@ -4,8 +4,7 @@ using Behlog.Core.Models;
 
 namespace Behlog.Web.Models.Identity;
 
-
-public class RegisterUserCommand : BaseViewModel
+public class RegisterUserModel : BaseViewModel
 {
     [Required()]
     [MaxLength(256)]
@@ -30,4 +29,25 @@ public class RegisterUserCommand : BaseViewModel
     [MaxLength(20)]
     public string? PhoneNumber { get; set; }
     
+}
+
+
+public class RegisterUserCommand : IBehlogCommand<CommandResult>
+{
+    public RegisterUserCommand()
+    {
+    }
+    
+    public RegisterUserCommand(string userName)
+    {
+        UserName = userName;
+    }
+    
+    public string UserName { get; set; }
+    public string? Password { get; set; }
+    public string? Email { get; set; }
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
+    public string? DisplayName { get; set; }
+    public string? PhoneNumber { get; set; }
 }

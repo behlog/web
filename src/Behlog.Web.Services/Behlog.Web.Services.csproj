@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Behlog.Web.Models\Behlog.Web.Models.csproj" />
+      <ProjectReference Include="..\Behlog.Web.Resources\Behlog.Web.Resources.csproj" />
     </ItemGroup>
     
     <ItemGroup>

@@ -16,32 +16,46 @@ public class RegisterController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var command = new RegisterUserCommand();
-        return _View(command);
+        var model = new RegisterUserModel();
+        return _View(model);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Index(RegisterUserCommand command)
+    public async Task<IActionResult> Index(RegisterUserModel model)
     {
         if (!ModelState.IsValid)
         {
-            command.AddError("Err");
-            return _View(command);
+            model.AddError("Err");
+            return _View(model);
         }
-        
-        //var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
 
-        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", command);
+        var command = new RegisterUserCommand(model.UserName)
+        {
+            Email = model.Email,
+            Password = model.Password,
+            DisplayName = model.DisplayName,
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            PhoneNumber = model.PhoneNumber,
+            UserName = model.UserName
+        };
+
+        var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
+        if (result.HasError)
+        {
+            
+        }
+
+        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", model);
     }
 
 
     #region Return Views
 
-    private ViewResult _View(RegisterUserCommand command)
+    private ViewResult _View(RegisterUserModel model)
     {
-        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", command);
+        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", model);
     }
-    
-    
+
     #endregion
 }
