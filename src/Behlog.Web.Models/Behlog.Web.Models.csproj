@@ -7,6 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Reference Include="Behlog.Cms">
+        <HintPath>..\..\..\cms\src\Behlog.Cms\bin\Debug\net6.0\Behlog.Cms.dll</HintPath>
+      </Reference>
       <Reference Include="Behlog.Core">
         <HintPath>..\..\..\core\src\bin\Debug\net6.0\Behlog.Core.dll</HintPath>
       </Reference>
