@@ -10,7 +10,7 @@
 
 <div class="container">
     
-   @* @if (Model.Success)
+    @if (Model.Success)
     {
         <div class="alert alert-success">
             <span style="color: green">Success</span>    
@@ -22,10 +22,10 @@
         <div class="alert alert-danger">
             <span style="color: red">Error: @Model.ModelMessage </span>    
         </div>
-    }*@
+    }
     
     <form id="formSetup"
-          asp-controller="Home" asp-action="Index"
+          asp-controller="Home" asp-action="Index" asp-area="Setup"
           method="post">
 
         <div class="form-group">
