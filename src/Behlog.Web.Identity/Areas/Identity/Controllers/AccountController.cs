@@ -38,7 +38,7 @@ public class AccountController : Controller
     private ViewResult _View(AccountIndexModel model)
     {
         return View(
-            $"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Account/Index.cshtml", 
+            $"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Account/Index.cshtml", 
             model);
     }
 

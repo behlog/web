@@ -46,7 +46,7 @@ public class RegisterController : Controller
             
         }
 
-        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", model);
+        return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Register.cshtml", model);
     }
 
 
@@ -54,7 +54,7 @@ public class RegisterController : Controller
 
     private ViewResult _View(RegisterUserModel model)
     {
-        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Register.cshtml", model);
+        return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Register.cshtml", model);
     }
 
     #endregion

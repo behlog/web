@@ -52,7 +52,7 @@ builder.Services.AddBehlogCms();
 builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
 builder.Services.AddBehlogCmsEntityFrameworkCoreReadStores();
 builder.Services.AddBehlogCmsEntityFrameworkCoreWriteStores();
-builder.Services.AddBehlogWebCore(themeName: "default");
+builder.Services.AddBehlogWebCore();
 builder.Services.AddAuthorization().AddAuthentication();
 
 var app = builder.Build();

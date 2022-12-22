@@ -7,11 +7,10 @@ namespace Microsoft.Extensions.DependencyInjection;
 public static class ServiceProvider
 {
 
-    public static IServiceCollection AddBehlogWebCore(
-        this IServiceCollection services, string themeName = "default")
+    public static IServiceCollection AddBehlogWebCore(this IServiceCollection services)
     {
-        var website = getWebsite(themeName);
-        services.AddSingleton<BehlogWebsite>(website);
+        //var website = getWebsite(themeName);
+        //services.AddSingleton<BehlogWebsite>(website);
 
         return services;
     }
@@ -19,7 +18,7 @@ public static class ServiceProvider
     private static BehlogWebsite getWebsite(string theme)
     {
         var website = new BehlogWebsite();
-        website.SetTheme(theme);
+        website.WithTheme(theme);
         return website;
     }
 }

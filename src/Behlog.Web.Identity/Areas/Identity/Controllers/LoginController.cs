@@ -18,7 +18,7 @@ public class LoginController : Controller
     public IActionResult Index()
     {
         var model = new LoginUserModel();
-        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
+        return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
     }
 
     [HttpPost, ValidateAntiForgeryToken]
@@ -27,7 +27,7 @@ public class LoginController : Controller
         if (!ModelState.IsValid)
         {
             model.AddError("Model is not valid.");
-            return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
+            return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
         }
 
         var command = new LoginUserCommand(
@@ -39,6 +39,6 @@ public class LoginController : Controller
             
         }
         
-        return View($"~/Views/{_website.Theme}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
+        return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
     }
 }
