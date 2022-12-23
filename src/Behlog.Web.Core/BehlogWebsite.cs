@@ -13,7 +13,7 @@ public class BehlogWebsite
     public string Description { get; private set; }
     public string Keywords { get; private set; }
     public string Url { get; private set; }
-    public Guid OwnerUserId { get; private set; }
+    public string OwnerUserId { get; private set; }
     public Guid DefaultLangId { get; private set; }
     public bool IsReadOnly { get; private set; }
     public string Email { get; private set; }
@@ -57,7 +57,7 @@ public class BehlogWebsite
         return this;
     }
 
-    public BehlogWebsite WithOwnerUserId(Guid ownerUserId) {
+    public BehlogWebsite WithOwnerUserId(string ownerUserId) {
         OwnerUserId = ownerUserId;
         return this;
     }

@@ -1,21 +1,58 @@
-using Behlog.Cms.Domain;
+using Behlog.Cms.Models;
+using DNTPersianUtils.Core;
 
 namespace Behlog.Web.Models;
 
-
-public class ContentViewModel
+public class ContentViewModel : ContentResult
 {
-    public Guid Id { get; }
-    public string Title { get; }
-    public string Slug { get; }
-    public Guid ContentTypeId { get; }
-    public string ContentTypeTitle { get; }
-    public string ContentTypeSlug { get; }
-    public string Body { get; }
-    public ContentBodyType BodyType { get; }
-    public string AuthorUserId { get; }
-    public string Summary { get; }
-    public ContentStatus Status { get; }
-    public string AltTitle { get; }
-    public int OrderNum { get; }
+    public ContentViewModel() { }
+
+    public ContentViewModel(ContentResult result) {
+        Id = result.Id;
+        Title = result.Title;
+        Slug = result.Slug;
+        ContentTypeId = result.ContentTypeId;
+        ContentTypeSlug = result.ContentTypeSlug;
+        ContentTypeTitle = result.ContentTypeTitle;
+        LangId = result.LangId;
+        LangTitle = result.LangTitle;
+        LangCode = result.LangCode;
+        Body = result.Body;
+        BodyType = result.BodyType;
+        AuthorUserId = result.AuthorUserId;
+        AuthorUserDisplayName = result.AuthorUserDisplayName;
+        AuthorUserName = result.AuthorUserName;
+        Summary = result.Summary;
+        Status = result.Status;
+        LastStatusChangedDate = result.LastStatusChangedDate;
+        PublishDate = result.PublishDate;
+        AltTitle = result.AltTitle;
+        OrderNum = result.OrderNum;
+        IconName = result.IconName;
+        ViewPath = result.ViewPath;
+        CreatedDate = result.CreatedDate;
+        LastUpdated = result.LastUpdated;
+        CreatedDate = result.CreatedDate;
+        LastUpdated = result.LastUpdated;
+        CreatedByUserId = result.CreatedByUserId;
+        LastUpdatedByUserId = result.LastUpdatedByUserId;
+        CreatedByIp = result.CreatedByIp;
+        LastUpdatedByIp = result.LastUpdatedByIp;
+        LikesCount = result.LikesCount;
+        Categories = result.Categories;
+        Meta = result.Meta;
+        Files = result.Files;
+        Tags = result.Tags;
+    }
+
+    public string? PublishDateDisplay
+        => PublishDate?.ToLocalTime().ToPersianDateTextify();
+
+    public string CreateDateDisplay
+        => CreatedDate.ToLocalTime().ToPersianDateTextify();
+
+    public string? LastUpdatedDisplay
+        => LastUpdated?.ToLocalTime().ToPersianDateTextify();
+
+
 }
