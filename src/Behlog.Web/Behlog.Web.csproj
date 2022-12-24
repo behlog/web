@@ -61,6 +61,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Behlog.Web.Components\Behlog.Web.Components.csproj" />
       <ProjectReference Include="..\Behlog.Web.Core\Behlog.Web.Core.csproj" />
       <ProjectReference Include="..\Behlog.Web.Identity\Behlog.Web.Identity.csproj" />
       <ProjectReference Include="..\Behlog.Web.Models\Behlog.Web.Models.csproj" />

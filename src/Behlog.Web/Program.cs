@@ -39,20 +39,21 @@ builder.Services.AddIdyfaEntityFrameworkCore();
 builder.Services.AddIdyfaCore(idyfaOptions);
 
 builder.Services.AddBehlogCore(config);
-builder.Services.AddBehlogManager();
-builder.Services.AddBehlogMiddleware();
-builder.Services.AddBehlogManager(new[]
-{
-    typeof(RegisterUserCommand).Assembly,
-    //typeof(UserIdentityCommandHandler).Assembly,
-    typeof(Website).Assembly
-});
+// builder.Services.AddBehlogManager();
+// builder.Services.AddBehlogMiddleware();
+// builder.Services.AddBehlogManager(new[]
+// {
+//     typeof(RegisterUserCommand).Assembly,
+//     typeof(Website).Assembly
+// });
 
 builder.Services.AddBehlogCms();
 builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
 builder.Services.AddBehlogCmsEntityFrameworkCoreReadStores();
 builder.Services.AddBehlogCmsEntityFrameworkCoreWriteStores();
 builder.Services.AddBehlogWebCore();
+builder.Services.AddDefaultBehlogWebComponents();
+
 builder.Services.AddAuthorization().AddAuthentication();
 
 var app = builder.Build();
