@@ -6,4 +6,19 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="ViewModelString.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ViewModelString.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="ViewModelString.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ViewModelString.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

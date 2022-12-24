@@ -14,6 +14,13 @@ public static class ServiceProvider
 
         return services;
     }
+
+
+    public static IServiceCollection AddBehlogWebsite(this IServiceCollection services, BehlogWebsite website)
+    {
+        services.AddSingleton<BehlogWebsite>(website);
+        return services;
+    }
     
     private static BehlogWebsite getWebsite(string theme)
     {

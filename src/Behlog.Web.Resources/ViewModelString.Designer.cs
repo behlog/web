@@ -14,7 +14,7 @@ namespace Behlog.Web.Resources {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ViewModelString {
+    public class ViewModelString {
         
         private static System.Resources.ResourceManager resourceMan;
         
@@ -36,12 +36,24 @@ namespace Behlog.Web.Resources {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Globalization.CultureInfo Culture {
+        public static System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        public static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        public static string MaxLen {
+            get {
+                return ResourceManager.GetString("MaxLen", resourceCulture);
             }
         }
     }

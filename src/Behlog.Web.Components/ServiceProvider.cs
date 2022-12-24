@@ -1,6 +1,19 @@
-namespace Behlog.Web.Components;
+using Behlog.Web.Components;
 
-public class ServiceProvider
+namespace Microsoft.Extensions.DependencyInjection;
+
+public static class ServiceProvider
 {
     
+    /// <summary>
+    /// Adds Behlog Default WebComponents to the ServiceCollection.
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
+    public static IServiceCollection AddDefaultBehlogWebComponents(this IServiceCollection services)
+    {
+        services.AddScoped<IImageSliderComponent, ImageSliderComponent>();
+
+        return services;
+    }
 }
