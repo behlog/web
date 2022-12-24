@@ -1,7 +1,7 @@
+using Behlog.Cms;
 using Idyfa.Core;
 using Behlog.Cms.Domain;
 using Behlog.Core.Models;
-//using Behlog.Web.Services;
 using Behlog.Web.Models.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -52,6 +52,18 @@ builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
 builder.Services.AddBehlogCmsEntityFrameworkCoreReadStores();
 builder.Services.AddBehlogCmsEntityFrameworkCoreWriteStores();
 builder.Services.AddBehlogWebCore();
+builder.Services.AddBehlogWebsite(new BehlogWebsite()
+    .WithId(Guid.NewGuid())
+    .WithEmail("hi@behlog.ir")
+    .WithDescription("Behlog open-source content management system for perisan sites.")
+    .WithKeywords("behlog, cms, persian cms")
+    .WithTheme("default")
+    .WithTitle("Behlog Content Management System")
+    .WithName("behlog")
+    .WithUrl("http://behlog.ir")
+    .WithCopyrightText("(c) 2018-2022 Behlog CMS")
+    .WithOwnerUserId("")
+    .WithDefaultLangId(PersianLanguage.Id));
 builder.Services.AddDefaultBehlogWebComponents();
 
 builder.Services.AddAuthorization().AddAuthentication();
