@@ -19,6 +19,7 @@ public class ContentViewModel : ContentResult
         LangCode = result.LangCode;
         Body = result.Body;
         BodyType = result.BodyType;
+        CoverPhoto = result.CoverPhoto;
         AuthorUserId = result.AuthorUserId;
         AuthorUserDisplayName = result.AuthorUserDisplayName;
         AuthorUserName = result.AuthorUserName;
