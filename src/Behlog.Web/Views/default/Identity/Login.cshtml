@@ -6,6 +6,23 @@
 
 <div>
     
+    @if (Model.HasError)
+    {
+        <div class="alert alert-danger">
+            <h3>Error!</h3>
+            <p>
+                @Model.ErrorMessages.ToString()
+            </p>
+        </div>
+    }
+    
+    @if (Model.Success)
+    {
+        <div class="alert alert-success">
+            <p>Welcome, You are successfully logged-in.</p>
+        </div>
+    }
+    
     <form id="myform" method="post" asp-controller="Login" asp-action="Index" asp-area="Identity"  
           enctype="application/x-www-form-urlencoded">
         

@@ -1,3 +1,5 @@
+using Behlog.Web.Services.Contracts;
+
 namespace Behlog.Web.Identity;
 
 
@@ -5,12 +7,12 @@ namespace Behlog.Web.Identity;
 [Route("[area]/login")]
 public class LoginController : Controller
 {
-    private readonly IBehlogMediator _mediator;
+    private readonly IUserIdentityService _userIdentityService;
     private readonly BehlogWebsite _website;
 
-    public LoginController(IBehlogMediator mediator, BehlogWebsite website)
+    public LoginController(IUserIdentityService userIdentityService, BehlogWebsite website)
     {
-        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        _userIdentityService = userIdentityService ?? throw new ArgumentNullException(nameof(userIdentityService));
         _website = website ?? throw new ArgumentNullException(nameof(website));
     }
 
@@ -30,15 +32,16 @@ public class LoginController : Controller
             return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
         }
 
-        var command = new LoginUserCommand(
-            model.UserName, model.Password, model.RememberMe);
-        
-        var result = await _mediator.PublishAsync(command).ConfigureAwait(false);
+
+
+        var result = await _userIdentityService.LoginAsync(model);
         if (result.HasError)
         {
-            
+            model.AddError(result.Errors.ToString()!);
+            return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
         }
         
+        model.Succeed();
         return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
     }
 }

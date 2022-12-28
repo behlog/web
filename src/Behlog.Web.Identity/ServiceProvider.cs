@@ -18,7 +18,8 @@ public static class ServiceProvider
             {
                 options.FileProviders.Add(new EmbeddedFileProvider(assembly));
             });
-
+        
+        
         return builder;
     }
 

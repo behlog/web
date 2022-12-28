@@ -32,7 +32,8 @@ public class ImageSliderItemViewModel
 
 public class UpdateImageSliderViewModel : UpdateWebComponentViewModel
 {
-    public UpdateImageSliderViewModel()
+    public UpdateImageSliderViewModel(Guid websiteId, Guid langId, string name) 
+        : base(websiteId, langId, name)
     {
         Images = new List<ImageSliderItemViewModel>();
     }

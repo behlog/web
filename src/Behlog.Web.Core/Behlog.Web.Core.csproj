@@ -6,5 +6,13 @@
         <Nullable>enable</Nullable>
         <OutputType>Library</OutputType>
     </PropertyGroup>
-
+    
+    <ItemGroup>
+        <Reference Include="Behlog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <HintPath>..\..\..\core\src\bin\Debug\net6.0\Behlog.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Behlog.Cms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <HintPath>..\..\..\cms\src\Behlog.Cms\bin\Debug\net6.0\Behlog.Cms.dll</HintPath>
+        </Reference>
+    </ItemGroup>
 </Project>

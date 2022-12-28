@@ -21,7 +21,7 @@ public class BehlogWebsite
 
     public static WebsiteAreaNames Areas => new();
 
-    public BehlogWebsite WithTheme(string templateName)
+    public BehlogWebsite WithTemplateName(string templateName)
     {
         TemplateName = templateName;
         return this;

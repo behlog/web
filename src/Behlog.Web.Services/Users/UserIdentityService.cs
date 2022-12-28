@@ -1,58 +1,29 @@
 namespace Behlog.Web.Services;
 
 
-public class UserIdentityCommandHandler : 
-    IBehlogCommandHandler<RegisterUserCommand, CommandResult>,
-    IBehlogCommandHandler<LoginUserCommand, CommandResult>
+public class UserIdentityService : IUserIdentityService
 {
     private readonly IIdyfaUserManager _userManager;
     private readonly IIdyfaAuthManager _auth;
 
-    public UserIdentityCommandHandler(
-        IIdyfaUserManager userManager, IIdyfaAuthManager auth)
+
+    public UserIdentityService(IIdyfaUserManager userManager, IIdyfaAuthManager auth)
     {
         _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         _auth = auth ?? throw new ArgumentNullException(nameof(auth));
         _auth.AfterSignInEvent += OnAfterSignIn;
     }
-
-    private void OnAfterSignIn(AfterSignInEventArgs args)
+    
+    
+    public async Task<CommandResult> LoginAsync(
+        LoginUserModel model, CancellationToken cancellationToken = default)
     {
-        var loggedInUserName = args.UserName;
+        model.ThrowExceptionIfArgumentIsNull(nameof(model));
         
-    }
-
-
-    public async Task<CommandResult> HandleAsync(
-        RegisterUserCommand command, CancellationToken cancellationToken = default)
-    {
-        command.ThrowExceptionIfArgumentIsNull(nameof(command));
-
-        var user = User.New()
-            .WithUserName(command.UserName)
-            .WithEmail(command.Email)
-            .WithFirstName(command.FirstName)
-            .WithLastName(command.LastName)
-            .WithDisplayName(command.DisplayName)
-            .WithPhoneNumber(command.PhoneNumber);
-
-        var result = await _userManager.CreateAsync(user, command.Password).ConfigureAwait(false);
-        if (!result.Succeeded)
-        {
-            return CommandResult.Failed(result.Errors.ToValidationErrors());
-        }
-
-        return CommandResult.Success();
-    }
-
-    public async Task<CommandResult> HandleAsync(
-        LoginUserCommand command, CancellationToken cancellationToken = default)
-    {
-        command.ThrowExceptionIfArgumentIsNull(nameof(command));
         try
         {
             await _auth.AuthenticateAsync(
-                command.UserName, command.Password, command.RememberMe, cancellationToken
+                model.UserName, model.Password, model.RememberMe, cancellationToken
             ).ConfigureAwait(false);
         }
         catch (InvalidUserNameException ex)
@@ -83,4 +54,38 @@ public class UserIdentityCommandHandler :
 
         return CommandResult.Success();
     }
+
+    
+    public async Task<CommandResult> RegisterUserAsync(
+        RegisterUserModel model, CancellationToken cancellationToken = default)
+    {
+        model.ThrowExceptionIfArgumentIsNull(nameof(model));
+        
+        var user = User.New()
+            .WithUserName(model.UserName)
+            .WithEmail(model.Email)
+            .WithFirstName(model.FirstName)
+            .WithLastName(model.LastName)
+            .WithDisplayName(model.DisplayName)
+            .WithPhoneNumber(model.PhoneNumber);
+
+        var result = await _userManager.CreateAsync(user, model.Password).ConfigureAwait(false);
+        if (!result.Succeeded)
+        {
+            return CommandResult.Failed(result.Errors.ToValidationErrors());
+        }
+
+        return CommandResult.Success();
+    }
+
+
+    #region private helpers
+
+    private void OnAfterSignIn(AfterSignInEventArgs args)
+    {
+        var loggedInUserName = args.UserName;
+        
+    }
+
+    #endregion
 }

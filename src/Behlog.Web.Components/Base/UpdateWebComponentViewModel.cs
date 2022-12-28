@@ -7,8 +7,11 @@ namespace Behlog.Web.Components.Base;
 
 public abstract class UpdateWebComponentViewModel : BaseViewModel
 {
-    public UpdateWebComponentViewModel()
+    public UpdateWebComponentViewModel(Guid websiteId, Guid langId, string name)
     {
+        Name = name;
+        WebsiteId = websiteId;
+        LangId = langId;
         Meta = new List<MetaCommand>();
         Files = new List<ComponentFileCommand>();
     }
