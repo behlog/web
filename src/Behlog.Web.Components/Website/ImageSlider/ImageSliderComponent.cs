@@ -78,7 +78,7 @@ public class ImageSliderComponent : IImageSliderComponent
             ParentId = component.ParentId,
             ViewPath = component.ViewPath,
             WebsiteId = component.WebsiteId,
-            Images = (component.Attributes != null
+            Attributes = (component.Attributes != null
                 ? JsonConvert.DeserializeObject<ICollection<ImageSliderItemViewModel>>(component.Attributes)
                 : new List<ImageSliderItemViewModel>())!
         };
@@ -105,7 +105,7 @@ public class ImageSliderComponent : IImageSliderComponent
             ParentId = component.ParentId,
             ViewPath = component.ViewPath,
             WebsiteId = component.WebsiteId,
-            Images = (component.Attributes != null
+            Attributes = (component.Attributes != null
                 ? JsonConvert.DeserializeObject<ICollection<ImageSliderItemViewModel>>(component.Attributes)
                 : new List<ImageSliderItemViewModel>())!
         };
@@ -114,7 +114,8 @@ public class ImageSliderComponent : IImageSliderComponent
     }
 
 
-    public async Task<UpdateImageSliderViewModel> UpdateAsync(UpdateImageSliderViewModel model, CancellationToken cancellationToken = default)
+    public async Task<UpdateImageSliderViewModel> UpdateAsync(
+        UpdateImageSliderViewModel model, CancellationToken cancellationToken = default)
     {
         model.ThrowExceptionIfArgumentIsNull(nameof(model));
 

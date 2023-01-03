@@ -1,9 +1,10 @@
 namespace Behlog.Web.Components.Base;
 
 
-public interface IBehlogWebComponent<TUpdateModel, TViewModel> 
+public interface IBehlogWebComponent<TUpdateModel, TViewModel, TAttributeType> 
     where TUpdateModel : UpdateWebComponentViewModel
-    where TViewModel : WebComponentViewModel
+    where TViewModel : WebComponentViewModel<TAttributeType>
+    where TAttributeType : class 
 {
     
     string ComponentType { get; }

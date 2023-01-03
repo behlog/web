@@ -2,7 +2,12 @@ using Behlog.Web.Components.Base;
 
 namespace Behlog.Web.Components;
 
-public class IntroBoxViewModel : WebComponentViewModel
+public class IntroBoxViewModel : WebComponentViewModel<IntroBoxAttributes>
+{
+
+}
+
+public class IntroBoxAttributes
 {
     public Guid? ContentId { get; set; }
     public string Title { get; set; }

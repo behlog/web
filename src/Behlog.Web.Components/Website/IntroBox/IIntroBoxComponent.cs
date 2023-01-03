@@ -4,7 +4,7 @@ namespace Behlog.Web.Components;
 
 
 public interface IIntroBoxComponent :
-    IBehlogWebComponent<UpdateIntroBoxViewModel, IntroBoxViewModel>
+    IBehlogWebComponent<UpdateIntroBoxViewModel, IntroBoxViewModel, IntroBoxAttributes>
 {
     
 }

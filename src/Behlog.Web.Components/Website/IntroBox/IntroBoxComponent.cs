@@ -1,5 +1,8 @@
 using Behlog.Cms.Commands;
+using Behlog.Cms.Query;
 using Behlog.Core;
+using Behlog.Extensions;
+using Newtonsoft.Json;
 
 namespace Behlog.Web.Components;
 
@@ -55,18 +58,93 @@ public class IntroBoxComponent : IIntroBoxComponent
         Console.WriteLine($"Component '{component.Value.Name}' created successfully.");
     }
 
-    public Task<UpdateIntroBoxViewModel> UpdateAsync(UpdateIntroBoxViewModel model, CancellationToken cancellationToken = default)
+    public async Task<UpdateIntroBoxViewModel> UpdateAsync(
+        UpdateIntroBoxViewModel model, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        model.ThrowExceptionIfArgumentIsNull(nameof(model));
+
+        var command = new UpsertComponentCommand
+        {
+            Attributes = JsonConvert.SerializeObject(model, Formatting.Indented),
+            Author = _author,
+            Category = _category,
+            Description = model.Description,
+            Keywords = _keywords,
+            Name = model.Name,
+            Title = model.Title,
+            AuthorEmail = _authorEmail,
+            IsRtl = model.IsRtl,
+            ComponentType = _componentType,
+            Files = model.Files,
+            Meta = model.Meta,
+            LangId = model.LangId,
+            ParentId = model.ParentId,
+            ViewPath = model.ViewPath,
+            WebsiteId = model.WebsiteId
+        };
+
+        var result = await _behlog.PublishAsync(command, cancellationToken);
+        if (result.HasError)
+        {
+            model.WithValidationErrors(result.Errors);
+            return model;
+        }
+        
+        model.Succeed();
+        return model;
     }
 
-    public Task<IntroBoxViewModel> LoadAsync(Guid websiteId, Guid langId, string name, CancellationToken cancellationToken = default)
+    public async Task<IntroBoxViewModel> LoadAsync(
+        Guid websiteId, Guid langId, string name, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var query = new QueryComponentByName(websiteId, langId, name);
+        var component = await _behlog.PublishAsync(query, cancellationToken).ConfigureAwait(false);
+        component.ThrowExceptionIfReferenceIsNull(nameof(component));
+
+        var introBox = new IntroBoxViewModel
+        {
+            Id = component.Id,
+            Name = component.Name,
+            Title = component.Title,
+            IsRtl = component.IsRtl,
+            LangId = component.LangId,
+            LangCode = component.LangCode,
+            Description = component.Description,
+            ParentId = component.ParentId,
+            ViewPath = component.ViewPath,
+            WebsiteId = component.WebsiteId,
+            Attributes = (component.Attributes != null
+                ? JsonConvert.DeserializeObject<IntroBoxAttributes>(component.Attributes)
+                : new IntroBoxAttributes())!
+        };
+
+        return await Task.FromResult(introBox);
     }
 
-    public Task<IntroBoxViewModel> LoadAsync(Guid websiteId, string langCode, string name, CancellationToken cancellationToken = default)
+    public async Task<IntroBoxViewModel> LoadAsync(
+        Guid websiteId, string langCode, string name, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var query = new QueryComponentByName(websiteId, langCode, name);
+        var component = await _behlog.PublishAsync(query, cancellationToken).ConfigureAwait(false);
+        component.ThrowExceptionIfReferenceIsNull(nameof(component));
+        
+        var introBox = new IntroBoxViewModel
+        {
+            Id = component.Id,
+            Name = component.Name,
+            Title = component.Title,
+            IsRtl = component.IsRtl,
+            LangId = component.LangId,
+            LangCode = component.LangCode,
+            Description = component.Description,
+            ParentId = component.ParentId,
+            ViewPath = component.ViewPath,
+            WebsiteId = component.WebsiteId,
+            Attributes = (component.Attributes != null
+                ? JsonConvert.DeserializeObject<IntroBoxAttributes>(component.Attributes)
+                : new IntroBoxAttributes())!
+        };
+
+        return await Task.FromResult(introBox);
     }
 }

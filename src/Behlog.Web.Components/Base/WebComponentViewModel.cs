@@ -1,6 +1,6 @@
 namespace Behlog.Web.Components.Base;
 
-public abstract class WebComponentViewModel
+public abstract class WebComponentViewModel<TAttributeType>
 {
     
     public Guid Id { get; set; }
@@ -13,4 +13,6 @@ public abstract class WebComponentViewModel
     public Guid? ParentId { get; set; }
     public string? ViewPath { get; set; }
     public string? Description { get; set; }
+    
+    public TAttributeType Attributes { get; set; }
 }

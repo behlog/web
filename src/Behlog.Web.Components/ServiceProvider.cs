@@ -13,6 +13,7 @@ public static class ServiceProvider
     public static IServiceCollection AddDefaultBehlogWebComponents(this IServiceCollection services)
     {
         services.AddScoped<IImageSliderComponent, ImageSliderComponent>();
+        services.AddScoped<IIntroBoxComponent, IntroBoxComponent>();
 
         return services;
     }

@@ -2,14 +2,13 @@ using Behlog.Web.Components.Base;
 
 namespace Behlog.Web.Components;
 
-public class ImageSliderViewModel : WebComponentViewModel
+public class ImageSliderViewModel 
+    : WebComponentViewModel<ICollection<ImageSliderItemViewModel>>
 {
     public ImageSliderViewModel()
     {
-        Images = new List<ImageSliderItemViewModel>();    
+        Attributes = new List<ImageSliderItemViewModel>();    
     }
-    
-    public ICollection<ImageSliderItemViewModel> Images { get; set; }
     
 }
 
