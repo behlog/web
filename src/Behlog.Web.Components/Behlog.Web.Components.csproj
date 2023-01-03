@@ -19,7 +19,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Website\LatestContent" />
       <Folder Include="wwwroot" />
     </ItemGroup>
 
