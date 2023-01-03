@@ -27,4 +27,8 @@ public interface IBehlogWebComponent<TUpdateModel, TViewModel>
     
     Task<TViewModel> LoadAsync(
         Guid websiteId, Guid langId, string name, CancellationToken cancellationToken = default);
+
+    
+    Task<TViewModel> LoadAsync(
+        Guid websiteId, string langCode, string name, CancellationToken cancellationToken = default);
 }

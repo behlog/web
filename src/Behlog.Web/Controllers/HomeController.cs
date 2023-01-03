@@ -19,6 +19,8 @@ public class HomeController : Controller
     {
         // await _imageSliderComponent.InstallAsync(
         //     )
+
+        var imageSlider = await _imageSliderComponent.LoadAsync(_website.Id, "fa", "homeslider");
         
         return View();
     }

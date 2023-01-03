@@ -15,8 +15,7 @@ public class ImageSliderComponent : IImageSliderComponent
     private const string _keywords = "slider;images;gallery";
 
     private readonly IBehlogMediator _behlog;
-
-
+    
     public ImageSliderComponent(IBehlogMediator behlog)
     {
         _behlog = behlog ?? throw new ArgumentNullException(nameof(behlog));
@@ -69,16 +68,48 @@ public class ImageSliderComponent : IImageSliderComponent
 
         var imageSlider = new ImageSliderViewModel
         {
+            Id = component.Id,
             Name = component.Name,
             Title = component.Title,
             IsRtl = component.IsRtl,
             LangId = component.LangId,
             LangCode = component.LangCode,
+            Description = component.Description,
+            ParentId = component.ParentId,
+            ViewPath = component.ViewPath,
+            WebsiteId = component.WebsiteId,
             Images = (component.Attributes != null
                 ? JsonConvert.DeserializeObject<ICollection<ImageSliderItemViewModel>>(component.Attributes)
                 : new List<ImageSliderItemViewModel>())!
         };
 
+        return await Task.FromResult(imageSlider);
+    }
+
+    public async Task<ImageSliderViewModel> LoadAsync(
+        Guid websiteId, string langCode, string name, CancellationToken cancellationToken = default)
+    {
+        var query = new QueryComponentByName(websiteId, langCode, name);
+        var component = await _behlog.PublishAsync(query, cancellationToken).ConfigureAwait(false);
+        component.ThrowExceptionIfReferenceIsNull(nameof(component));
+
+        var imageSlider = new ImageSliderViewModel
+        {
+            Name = component.Name,
+            Title = component.Title,
+            IsRtl = component.IsRtl,
+            LangId = component.LangId,
+            LangCode = component.LangCode,
+            Description = component.Description,
+            Id = component.Id,
+            ParentId = component.ParentId,
+            ViewPath = component.ViewPath,
+            WebsiteId = component.WebsiteId,
+            Images = (component.Attributes != null
+                ? JsonConvert.DeserializeObject<ICollection<ImageSliderItemViewModel>>(component.Attributes)
+                : new List<ImageSliderItemViewModel>())!
+        };
+        
         return await Task.FromResult(imageSlider);
     }
 
