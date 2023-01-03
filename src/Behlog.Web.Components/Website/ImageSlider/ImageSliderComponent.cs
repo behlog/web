@@ -10,7 +10,7 @@ public class ImageSliderComponent : IImageSliderComponent
 {
     private const string _componentType = "imageslider";
     private const string _category = "slider";
-    private const string _author = "Iman N";
+    private const string _author = "ImanN";
     private const string _authorEmail = "imun22@gmail.com";
     private const string _keywords = "slider;images;gallery";
 
