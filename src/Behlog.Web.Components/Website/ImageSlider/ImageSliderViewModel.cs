@@ -29,13 +29,12 @@ public class ImageSliderItemViewModel
 }
 
 
-public class UpdateImageSliderViewModel : UpdateWebComponentViewModel
+public class UpdateImageSliderViewModel : UpdateWebComponentViewModel<ICollection<ImageSliderItemViewModel>>
 {
     public UpdateImageSliderViewModel(Guid websiteId, Guid langId, string name) 
         : base(websiteId, langId, name)
     {
-        Images = new List<ImageSliderItemViewModel>();
+        Attributes = new List<ImageSliderItemViewModel>();
     }
     
-    public List<ImageSliderItemViewModel> Images { get; set; }
 }

@@ -38,9 +38,9 @@ public class HomeController : Controller
             Name = "HomeSlider",
             Title = "Slider Home  ",
             IsRtl = true,
-            Images = new List<ImageSliderItemViewModel>
+            Attributes = new List<ImageSliderItemViewModel>
             {
-                new ImageSliderItemViewModel
+                new()
                 {
                     Index = 0,
                     Title = "filan",
@@ -51,7 +51,7 @@ public class HomeController : Controller
                     MoreInfoUrl = "http://filan.com",
                     Description = "asdad"
                 },
-                new ImageSliderItemViewModel
+                new()
                 {
                     Index = 1,
                     Title = "fila1",
@@ -61,7 +61,7 @@ public class HomeController : Controller
                     MoreInfoUrl = "http://filan2.com",
                     Description = "asdad"
                 },
-                new ImageSliderItemViewModel
+                new()
                 {
                     Index = 2,
                     Title = "filan3",
@@ -72,7 +72,7 @@ public class HomeController : Controller
                     MoreInfoUrl = "http://filan3.com",
                     Description = "asdad"
                 },
-                new ImageSliderItemViewModel
+                new()
                 {
                     Index = 0,
                     Title = "filan4",

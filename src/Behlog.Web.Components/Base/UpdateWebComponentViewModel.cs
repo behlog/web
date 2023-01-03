@@ -5,7 +5,7 @@ using Behlog.Web.Resources;
 
 namespace Behlog.Web.Components.Base;
 
-public abstract class UpdateWebComponentViewModel : BaseViewModel
+public abstract class UpdateWebComponentViewModel<TAttributes> : BaseViewModel where TAttributes : class
 {
     public UpdateWebComponentViewModel(Guid websiteId, Guid langId, string name)
     {
@@ -40,4 +40,6 @@ public abstract class UpdateWebComponentViewModel : BaseViewModel
     public IList<MetaCommand> Meta { get; set; }
     
     public IList<ComponentFileCommand> Files { get; set; }
+    
+    public TAttributes Attributes { get; set; }
 }

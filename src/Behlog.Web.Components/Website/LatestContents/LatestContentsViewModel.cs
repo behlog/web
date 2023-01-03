@@ -26,14 +26,10 @@ public class LatestContentsItemViewModel
     public string Url { get; set; }
 }
 
-public class UpdateLatestContentsViewModel : UpdateWebComponentViewModel
+public class UpdateLatestContentsViewModel : UpdateWebComponentViewModel<LatestContentsAttributes>
 {
     public UpdateLatestContentsViewModel(Guid websiteId, Guid langId, string name) 
         : base(websiteId, langId, name)
     {
     }
-    
-    public Guid? ContentTypeId { get; set; }
-    public string? ContentTypeName { get; set; }
-    public int Count { get; set; }
 }
