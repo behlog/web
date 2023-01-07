@@ -1,6 +1,3 @@
-using Behlog.Cms.Models;
-using DNTPersianUtils.Core;
-
 namespace Behlog.Web.Models;
 
 public class ContentViewModel : ContentResult

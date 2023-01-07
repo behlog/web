@@ -1,20 +1,34 @@
 ﻿namespace Behlog.Web.Models;
 
-public class ContentCategoryViewModel
+public class ContentCategoryViewModel : ContentCategoryResult
 {
-    public Guid Id { get; set; }
-    public Guid WebsiteId { get; set; }
-    public string Title { get; set; }
-    public string? AltTitle { get; set; }
-    public string Slug { get; set; }
-    public Guid LangId { get; set; }
-    public string LangCode { get; set; }
-    public Guid? ParentId { get; set; }
-    public string? Description { get; set; }
-    public Guid? ContentTypeId { get; set; }
-    public string ContentTypeName { get; set; }
-    public string ContentTypeTitle { get; set; }
-    public EntityStatusEnum Status { get; set; }
+
+    public ContentCategoryViewModel() { }
+
+    public ContentCategoryViewModel(ContentCategoryResult result) {
+        if (result == null) {
+            throw new ArgumentNullException(nameof(result));
+        }
+
+        Id = result.Id;
+        Title = result.Title;
+        AltTitle = result.AltTitle;
+        Slug = result.Slug;
+        LangId = result.LangId;
+        LangCode = result.LangCode;
+        ParentId = result.ParentId;
+        Description = result.Description;
+        ContentTypeId = result.ContentTypeId;
+        ContentTypeSystemName = result.ContentTypeSystemName;
+        ContentTypeTitle = result.ContentTypeTitle;
+        ContentTypeSlug = result.ContentTypeSlug;
+        Status = result.Status;
+        WebsiteId = result.WebsiteId;
+        WebsiteName = result.WebsiteName;
+        WebsiteTitle = result.WebsiteTitle;
+        LangTitle = result.LangTitle;
+    }
+
     public DateTime CreatedDate { get; set; }
     public string CreatedDateDisplay => CreatedDate.ToLocalTime().ToPersianDateTextify();
     public DateTime? LastUpdated { get; set; }
