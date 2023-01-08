@@ -2,7 +2,7 @@
 
 public class ContentDetailsViewModel
 {
-    public ContentDetailsViewModel() {
+    public ContentDetailsViewModel() { 
         Categories = new List<ContentCategoryViewModel>();
         RelatedContents = new List<ContentViewModel>();
     }

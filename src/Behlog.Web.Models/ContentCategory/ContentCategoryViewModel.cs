@@ -2,7 +2,7 @@
 
 public class ContentCategoryViewModel : ContentCategoryResult
 {
-
+    
     public ContentCategoryViewModel() { }
 
     public ContentCategoryViewModel(ContentCategoryResult result) {
