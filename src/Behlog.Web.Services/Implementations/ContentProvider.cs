@@ -25,6 +25,7 @@ public class ContentProvider : IContentProvider
         var content = await _behlog.PublishAsync(
             new QueryContentByContentTypeAndSlug(websiteId, slug, null, contentTypeName, langId));
         content.ThrowExceptionIfReferenceIsNull(nameof(content));
+        model.Content = new ContentViewModel(content);
 
         var categories = await _behlog.PublishAsync(
             new QueryContentCategoryByContentType(null, contentTypeName, langId));
