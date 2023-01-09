@@ -12,10 +12,12 @@ public class ContentProvider : IContentProvider
     public async Task<ContentDetailsViewModel> GetDetailsAsync(
         Guid websiteId, string contentTypeName, string slug, string langCode) {
         websiteId.ThrowIfGuidIsEmpty(new BehlogInvalidEntityIdException(nameof(Website)));
-        if (contentTypeName.IsNotNullOrEmpty())
+        if (contentTypeName.IsNullOrEmptySpace())
             throw new ArgumentNullException(nameof(contentTypeName));
-        if (slug.IsNotNullOrEmpty())
+        if (slug.IsNullOrEmptySpace())
             throw new ArgumentNullException(nameof(slug));
+        if (langCode.IsNullOrEmptySpace())
+            throw new ArgumentNullException(nameof(langCode));
 
         var langId = BehlogSupportedLanguages.GetIdByCode(langCode);
         var model = new ContentDetailsViewModel();
