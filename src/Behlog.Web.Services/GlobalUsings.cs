@@ -1,4 +1,7 @@
+global using Behlog.Cms;
 global using Behlog.Core;
+global using Behlog.Cms.Query;
+global using Behlog.Cms.Domain;
 global using Behlog.Core.Models;
 global using Behlog.Extensions;
 global using Behlog.Web.Models;
@@ -6,8 +9,8 @@ global using Behlog.Web.Models.Identity;
 global using Behlog.Web.Services.Extensions;
 global using Behlog.Web.Services.Validations;
 global using Idyfa.Core;
-global using Idyfa.Core.Contracts;
 global using Idyfa.Core.Events;
+global using Idyfa.Core.Contracts;
 global using Idyfa.Core.Exceptions;
 global using Behlog.Web.Services;
 global using Behlog.Web.Services.Contracts;

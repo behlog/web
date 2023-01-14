@@ -13,7 +13,8 @@ public static class ServiceProvider
     public static IServiceCollection AddBehlogWebServices(this IServiceCollection services)
     {
         services.AddScoped<IUserIdentityService, UserIdentityService>();
-        
+        services.AddScoped<IContentProvider, ContentProvider>();
+
         return services;
     }
 }

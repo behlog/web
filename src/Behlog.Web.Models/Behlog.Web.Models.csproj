@@ -7,6 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="GlobalUsings.cs~RF15bb5428.TMP" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="DNTPersianUtils.Core" Version="5.4.9" />
     </ItemGroup>
 
