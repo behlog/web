@@ -26,4 +26,8 @@
       </Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Behlog.Web.Resources\Behlog.Web.Resources.csproj" />
+    </ItemGroup>
+
 </Project>

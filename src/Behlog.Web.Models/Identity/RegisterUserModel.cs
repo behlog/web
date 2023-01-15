@@ -1,7 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using Behlog.Core;
-using Behlog.Core.Models;
-
 namespace Behlog.Web.Models.Identity;
 
 public class RegisterUserModel : BaseViewModel
