@@ -15,4 +15,8 @@
             <HintPath>..\..\..\cms\src\Behlog.Cms\bin\Debug\net6.0\Behlog.Cms.dll</HintPath>
         </Reference>
     </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DNTPersianUtils.Core" Version="5.4.9" />
+    </ItemGroup>
 </Project>
