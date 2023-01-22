@@ -5,4 +5,6 @@ public class WebsiteAreaNames
     public const string Identity = nameof(Identity);
 
     public const string Setup = nameof(Setup);
+
+    public const string Admin = nameof(Admin);
 }
