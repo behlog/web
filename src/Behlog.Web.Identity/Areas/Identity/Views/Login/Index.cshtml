@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Sign in - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <title>
+      بهلاگ - ورور
+    </title>
     <!-- CSS files -->
-    <link href="./dist/css/tabler.min.css?1669759017" rel="stylesheet"/>
-    <link href="./dist/css/tabler-flags.min.css?1669759017" rel="stylesheet"/>
-    <link href="./dist/css/tabler-payments.min.css?1669759017" rel="stylesheet"/>
-    <link href="./dist/css/tabler-vendors.min.css?1669759017" rel="stylesheet"/>
-    <link href="./dist/css/demo.min.css?1669759017" rel="stylesheet"/>
+    <link href="~/behlog/css/tabler.rtl.min.css" rel="stylesheet"/>
+    <link href="~/behlog/css/tabler-flags.rtl.min.css?1669759017" rel="stylesheet"/>
+    <link href="~/behlog/css/tabler-payments.rtl.min.css?1669759017" rel="stylesheet"/>
+    <link href="~/behlog/css/tabler-vendors.rtl.min.css?1669759017" rel="stylesheet"/>
+    <link href="~/behlog/css/behlog.rtl.min.css?1669759017" rel="stylesheet"/>
     <style>
       @@import url('https://rsms.me/inter/inter.css');
       :root {
@@ -22,29 +24,29 @@
     </style>
   </head>
   <body  class=" border-top-wide border-primary d-flex flex-column">
-    <script src="./dist/js/demo-theme.min.js?1669759017"></script>
+    <script src="~/behlog/js/behlog-theme.min.js?1669759017"></script>
     <div class="page page-center">
       <div class="container container-tight py-4">
         <div class="text-center mb-4">
-          <a href="." class="navbar-brand navbar-brand-autodark"><img src="./static/logo.svg" height="36" alt=""></a>
+          <a href="." class="navbar-brand navbar-brand-autodark"><img src="~/behlog/static/logo.svg" height="36" alt=""></a>
         </div>
         <div class="card card-md">
           <div class="card-body">
-            <h2 class="h2 text-center mb-4">Login to your account</h2>
+            <h2 class="h2 text-center mb-4">ورود به بهلاگ</h2>
             <form action="./" method="get" autocomplete="off" novalidate>
               <div class="mb-3">
-                <label class="form-label">Email address</label>
-                <input type="email" class="form-control" placeholder="your@email.com" autocomplete="off">
+                <label class="form-label">نام کاربری</label>
+                <input type="username" class="form-control" placeholder="نام کاربری" autocomplete="off">
               </div>
               <div class="mb-2">
                 <label class="form-label">
-                  Password
+                  کلمه عبور
                   <span class="form-label-description">
-                    <a href="./forgot-password.html">I forgot password</a>
+                    <a href="#">فراموشی کلمه عبور</a>
                   </span>
                 </label>
                 <div class="input-group input-group-flat">
-                  <input type="password" class="form-control"  placeholder="Your password"  autocomplete="off">
+                  <input type="password" class="form-control"  placeholder="کلمه عبور"  autocomplete="off">
                   <span class="input-group-text">
                     <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
@@ -55,15 +57,15 @@
               <div class="mb-2">
                 <label class="form-check">
                   <input type="checkbox" class="form-check-input"/>
-                  <span class="form-check-label">Remember me on this device</span>
+                  <span class="form-check-label">مرا بخاط بسپار!</span>
                 </label>
               </div>
               <div class="form-footer">
-                <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                <button type="submit" class="btn btn-primary w-100">ورود</button>
               </div>
             </form>
           </div>
-          <div class="hr-text">or</div>
+          <div class="hr-text">یا</div>
           <div class="card-body">
             <div class="row">
               <div class="col"><a href="#" class="btn w-100">
@@ -80,13 +82,13 @@
           </div>
         </div>
         <div class="text-center text-muted mt-3">
-          Don't have account yet? <a href="./sign-up.html" tabindex="-1">Sign up</a>
+          حساب کاربری ندارید؟ <a href="#" tabindex="-1">ثبت نام</a>
         </div>
       </div>
     </div>
     <!-- Libs JS -->
     <!-- Tabler Core -->
-    <script src="./dist/js/tabler.min.js?1669759017" defer></script>
-    <script src="./dist/js/demo.min.js?1669759017" defer></script>
+    <script src="~/behlog/js/tabler.min.js?1669759017" defer></script>
+    <script src="~/behlog/js/behlog.min.js?1669759017" defer></script>
   </body>
 </html>
