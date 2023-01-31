@@ -20,7 +20,7 @@ public class LoginController : Controller
     public IActionResult Index()
     {
         var model = new LoginUserModel();
-        return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
+        return View(model);
     }
 
     [HttpPost, ValidateAntiForgeryToken]
@@ -29,19 +29,17 @@ public class LoginController : Controller
         if (!ModelState.IsValid)
         {
             model.AddError("Model is not valid.");
-            return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
+            return View(model);
         }
-
-
-
+        
         var result = await _userIdentityService.LoginAsync(model);
         if (result.HasError)
         {
             model.AddError(result.Errors.ToString()!);
-            return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
+            return View(model);
         }
         
         model.Succeed();
-        return View($"~/Views/{_website.TemplateName}/{WebsiteAreaNames.Identity}/Login.cshtml", model);
+        return View(model);
     }
 }

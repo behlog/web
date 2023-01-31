@@ -34,4 +34,8 @@
       <ProjectReference Include="..\Behlog.Web.Services\Behlog.Web.Services.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\identity" />
+    </ItemGroup>
+
 </Project>

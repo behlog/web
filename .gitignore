@@ -351,7 +351,7 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-src/Behlog.Web/wwwroot/admin-assets/
+src/Behlog.Web/wwwroot/behlog
 
 *.db-shm
 *.db-wal
