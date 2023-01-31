@@ -79,4 +79,19 @@
       <EmbeddedResource Include="Areas\Setup\Views\Home\Index.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\countup.js\dist\countUp.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\calendar.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\core.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\datetime.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\index.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\interfaces.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\litepicker.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\methods.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\utils.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\litepicker\dist\types\window.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\nouislider\dist\nouislider.d.ts" />
+      <TypeScriptCompile Include="wwwroot\admin-assets\libs\tinymce\tinymce.d.ts" />
+    </ItemGroup>
+
 </Project>
