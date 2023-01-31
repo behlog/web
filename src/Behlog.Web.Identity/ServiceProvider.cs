@@ -35,4 +35,5 @@ public static class ServiceProvider
 
         return endpoints;
     }
+    
 }
