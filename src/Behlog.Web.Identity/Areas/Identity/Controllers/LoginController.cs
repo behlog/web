@@ -19,12 +19,12 @@ public class LoginController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var model = new LoginUserModel();
+        var model = new UserLoginModel();
         return View(model);
     }
 
     [HttpPost, ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index(LoginUserModel model)
+    public async Task<IActionResult> Index(UserLoginModel model)
     {
         if (!ModelState.IsValid)
         {

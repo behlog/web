@@ -4,7 +4,7 @@ public interface IUserIdentityService
 {
 
     Task<CommandResult> LoginAsync(
-        LoginUserModel model, CancellationToken cancellationToken = default);
+        UserLoginModel model, CancellationToken cancellationToken = default);
 
 
     Task<CommandResult> RegisterUserAsync(

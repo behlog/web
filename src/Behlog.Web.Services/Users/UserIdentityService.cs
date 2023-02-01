@@ -16,7 +16,7 @@ public class UserIdentityService : IUserIdentityService
     
     
     public async Task<CommandResult> LoginAsync(
-        LoginUserModel model, CancellationToken cancellationToken = default)
+        UserLoginModel model, CancellationToken cancellationToken = default)
     {
         model.ThrowExceptionIfArgumentIsNull(nameof(model));
         

@@ -1,3 +1,5 @@
+using Behlog.Extensions;
+
 namespace Behlog.Web.Identity;
 using Behlog.Web.Services.Contracts;
 
@@ -16,14 +18,18 @@ public class IdentityController : Controller
     }
 
     [HttpGet("login")]
-    public IActionResult Login()
+    public IActionResult Login(string? returnUrl = null)
     {
-        var model = new LoginUserModel();
+        var model = new UserLoginModel
+        {
+            ReturnUrl = returnUrl
+        };
+        
         return View(model);
     }
     
-    [HttpPost, ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index(LoginUserModel model)
+    [HttpPost("login"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> Login(UserLoginModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -39,7 +45,13 @@ public class IdentityController : Controller
         }
         
         model.Succeed();
-        return View(model);
+
+        if (model.ReturnUrl.IsNotNullOrEmpty())
+        {
+            return Redirect(model.ReturnUrl);
+        }
+
+        return RedirectToAction("Index", "Home", new { area = WebsiteAreaNames.Identity });
     }
     
     

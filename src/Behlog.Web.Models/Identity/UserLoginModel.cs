@@ -1,7 +1,7 @@
 namespace Behlog.Web.Models;
 
 
-public class LoginUserModel : BaseViewModel
+public class UserLoginModel : BaseViewModel
 {
     [Required]
     public string UserName { get; set; }
@@ -10,6 +10,8 @@ public class LoginUserModel : BaseViewModel
     public string Password { get; set; }
     
     public bool RememberMe { get; set; }
+    
+    public string? ReturnUrl { get; set; }
 }
 
 
