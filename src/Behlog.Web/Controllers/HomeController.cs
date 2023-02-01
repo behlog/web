@@ -1,4 +1,5 @@
 using Behlog.Web.Components;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Behlog.Web.Controllers;
 
@@ -21,7 +22,7 @@ public class HomeController : Controller
         //     )
 
         var imageSlider = await _imageSliderComponent.LoadAsync(_website.Id, "fa", "homeslider");
-        
+
         return View();
     }
 
