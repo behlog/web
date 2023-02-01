@@ -4,7 +4,7 @@ namespace Behlog.Web.Identity;
 
 
 [Area(WebsiteAreaNames.Identity)]
-[Route("[area]/login")]
+[Route("[area]/login2")]
 public class LoginController : Controller
 {
     private readonly IUserIdentityService _userIdentityService;
