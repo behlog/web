@@ -7,5 +7,6 @@ public interface IContentTypeProvider
 {
 
     
-    Task<SelectListViewModel> GetSelectListAsync(string langCode, EntityStatus? status = null);
+    Task<SelectListViewModel> GetSelectListAsync(
+        string langCode, EntityStatus? status = null, CancellationToken cancellationToken = default);
 }
