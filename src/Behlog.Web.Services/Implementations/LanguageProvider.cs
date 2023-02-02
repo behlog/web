@@ -10,8 +10,15 @@ public class LanguageProvider : ILanguageProvider
         _behlog = behlog ?? throw new ArgumentNullException(nameof(behlog));
     }
     
-    public async Task<SelectListViewModel> GetSelectListAsync(EntityStatus? status = null)
+    /// <inheritdoc />
+    public async Task<SelectListViewModel> GetSelectListAsync(
+        EntityStatus? status = null, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var query = new QueryLanguages(status);
+        var result = await _behlog.PublishAsync(query, cancellationToken).ConfigureAwait(false);
+
+        return new SelectListViewModel(result.Select(
+            _ => new SelectListItemViewModel(_.Title, _.Id.ToString()))
+            );
     }
 }

@@ -14,6 +14,8 @@ public static class ServiceProvider
     {
         services.AddScoped<IUserIdentityService, UserIdentityService>();
         services.AddScoped<IContentProvider, ContentProvider>();
+        services.AddScoped<IContentTypeProvider, ContentTypeProvider>();
+        services.AddScoped<ILanguageProvider, LanguageProvider>();
 
         return services;
     }

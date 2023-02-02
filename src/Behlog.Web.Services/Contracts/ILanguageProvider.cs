@@ -6,5 +6,6 @@ namespace Behlog.Web.Services.Contracts;
 public interface ILanguageProvider
 {
 
-    Task<SelectListViewModel> GetSelectListAsync(EntityStatus? status = null);
+    Task<SelectListViewModel> GetSelectListAsync(
+        EntityStatus? status = null, CancellationToken cancellationToken = default);
 }
