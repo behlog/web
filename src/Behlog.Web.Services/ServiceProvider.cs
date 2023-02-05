@@ -6,7 +6,7 @@ public static class ServiceProvider
 {
 
     /// <summary>
-    /// Adds Behlog's ready to use Services to done related commands easily.
+    /// Adds ready to use Services to be used in other Behlog-based web projects.
     /// </summary>
     /// <param name="services"></param>
     /// <returns></returns>
@@ -16,6 +16,7 @@ public static class ServiceProvider
         services.AddScoped<IContentProvider, ContentProvider>();
         services.AddScoped<IContentTypeProvider, ContentTypeProvider>();
         services.AddScoped<ILanguageProvider, LanguageProvider>();
+        services.AddScoped<IContentCategoryProvider, ContentCategoryProvider>();
 
         return services;
     }
