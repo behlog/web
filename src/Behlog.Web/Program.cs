@@ -46,6 +46,7 @@ builder.Services.AddBehlogCmsEntityFrameworkCoreWriteStores();
 builder.Services.AddBehlogWebCore();
 builder.Services.AddDefaultBehlogWebComponents();
 builder.Services.AddBehlogWebServices();
+builder.Services.AddBehlogAdminServices();
 await builder.Services.AddBehlogDefaultWebsite();
 
 builder.Services.AddAuthorization().AddAuthentication();
