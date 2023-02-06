@@ -14,6 +14,17 @@ public static class ServiceProvider
         //var website = getWebsite(themeName);
         //services.AddSingleton<BehlogWebsite>(website);
 
+        services.AddCors(options =>
+        {
+            options.AddPolicy("Behlog_Origin", _ =>
+            {
+                _.WithOrigins("https://localhost:7004")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials();
+            });
+        });
+        
         return services;
     }
 

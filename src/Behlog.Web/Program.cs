@@ -35,8 +35,8 @@ builder.Services.AddSession(options =>
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 var sqliteCfg = idyfaOptions.IdyfaDbConfig.Databases.FirstOrDefault(_ =>
     _.Name.Equals("SQLite", StringComparison.InvariantCultureIgnoreCase));
-builder.Services.AddIdyfaSQLiteDatabase(sqliteCfg);
 builder.Services.AddIdyfaEntityFrameworkCore();
+builder.Services.AddIdyfaSQLiteDatabase(sqliteCfg);
 builder.Services.AddIdyfaCore(idyfaOptions);
 builder.Services.AddBehlogCore(config);
 builder.Services.AddBehlogCms();
@@ -64,6 +64,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseCors("Behlog_Origin");
 app.UseAuthentication();
 app.UseAuthorization();
 
