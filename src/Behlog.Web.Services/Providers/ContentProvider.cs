@@ -1,4 +1,6 @@
-﻿namespace Behlog.Web.Services;
+﻿using Behlog.Cms.Query;
+
+namespace Behlog.Web.Services;
 
 /// <inheritdoc />
 public class ContentProvider : IContentProvider
@@ -9,6 +11,7 @@ public class ContentProvider : IContentProvider
         _behlog = behlog ?? throw new ArgumentNullException(nameof(behlog));
     }
 
+    /// <inheritdoc /> 
     public async Task<ContentDetailsViewModel> GetDetailsAsync(
         Guid websiteId, string contentTypeName, string slug, string langCode) {
         websiteId.ThrowIfGuidIsEmpty(new BehlogInvalidEntityIdException(nameof(Website)));
@@ -37,4 +40,41 @@ public class ContentProvider : IContentProvider
 
         return await Task.FromResult(model);
     }
+
+
+	/// <inheritdoc /> 
+	public async Task<ContentIndexViewModel> GetIndexAsync(
+        Guid websiteId, string langCode, string contentTypeName, int page, int pageSize) {
+
+		websiteId.ThrowIfGuidIsEmpty(new BehlogInvalidEntityIdException(nameof(Website)));
+
+		if (contentTypeName.IsNullOrEmptySpace())
+			throw new ArgumentNullException(nameof(contentTypeName));
+
+		if (langCode.IsNullOrEmptySpace())
+			throw new ArgumentNullException(nameof(langCode));
+
+		var langId = BehlogSupportedLanguages.GetIdByCode(langCode);
+        var contentType = await _behlog.PublishAsync(
+            new QueryContentTypeBySystemName(contentTypeName, langId)).ConfigureAwait(false);
+
+        var model = ContentIndexViewModel.New(
+            langId, langCode, BehlogSupportedLanguages.GetTitleByCode(langCode));
+
+        var queryOptions = QueryOptions.New()
+            .WithPageNumber(page).WithPageSize(pageSize)
+            .WillOrderBy("PublishDate").WillOrderDesc();
+
+        model.WithContents(
+            await _behlog.PublishAsync(
+                new QueryPublishedContentsByContentTypeName(
+                    websiteId, langCode, contentTypeName, queryOptions)).ConfigureAwait(false));
+        model.WithCategories(
+            await _behlog.PublishAsync(
+                new QueryContentCategoryByContentType(contentType.Id, null, langId)).ConfigureAwait(false));
+
+        //model.WithTags TOD : read tags
+
+        return await Task.FromResult(model);
+	}
 }

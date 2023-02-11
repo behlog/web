@@ -16,7 +16,7 @@ public class ContentIndexViewModel
 
 	public IEnumerable<ContentCategoryResult> Categories { get; set; }
 
-	public IEnumerable<ContentTagResult> Tags { get; set; }
+	public IEnumerable<TagResult> Tags { get; set; }
 
 	public static ContentIndexViewModel New(Guid langId, string langCode, string? langTitle) {
 		var model = new ContentIndexViewModel {
@@ -43,7 +43,7 @@ public class ContentIndexViewModel
 		return this;
 	}
 
-	public ContentIndexViewModel WithTags(IEnumerable<ContentTagResult> tags) {
+	public ContentIndexViewModel WithTags(IEnumerable<TagResult> tags) {
 		Tags = tags;
 		return this;
 	}
