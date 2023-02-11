@@ -4,6 +4,12 @@ public class ContentIndexViewModel
 {
 	public ContentIndexViewModel() { }
 
+	public string LangCode { get; set; }
+
+	public string? LangTitle { get; set; }
+
+	public Guid LangId { get; set; }
+
 	public QueryResult<ContentResult> Contents { get; set; }
 
 	public ContentTypeResult ContentType { get; set; }
@@ -12,10 +18,19 @@ public class ContentIndexViewModel
 
 	public IEnumerable<ContentTagResult> Tags { get; set; }
 
-	public static ContentIndexViewModel New(ContentTypeResult contentType) {
-		var model = new ContentIndexViewModel();
-		model.ContentType = contentType;
+	public static ContentIndexViewModel New(Guid langId, string langCode, string? langTitle) {
+		var model = new ContentIndexViewModel {
+			LangId = langId,
+			LangCode = langCode,
+			LangTitle = langTitle
+		};
+
 		return model;
+	}
+
+	public ContentIndexViewModel WithContentType(ContentTypeResult contentType) {
+		ContentType = contentType;
+		return this;
 	}
 
 	public ContentIndexViewModel WithContents(QueryResult<ContentResult> contents) {
