@@ -6,7 +6,7 @@ public class CommentViewModel
 {
     public string? Title { get; protected set; }
     public string Body { get; protected set; }
-    public ContentBodyTypeEnum BodyType { get; protected set; }
+    public ContentBodyType BodyType { get; protected set; }
     public CommentStatusEnum Status { get; protected set; }
     public string? Email { get; protected set; }
     public string? WebUrl { get; protected set; }
