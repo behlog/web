@@ -3,10 +3,11 @@ namespace Behlog.Web.Models;
 
 public class UserLoginModel : BaseViewModel
 {
-    [Required]
+    [Required(ErrorMessageResourceType = typeof(BehlogIdentityErrors), ErrorMessageResourceName = "signin_username_req")]
+    [MaxLength(256, ErrorMessageResourceType = typeof(ViewModelString), ErrorMessageResourceName = "MaxLen")]
     public string UserName { get; set; }
     
-    [Required]
+    [Required(ErrorMessageResourceType = typeof(BehlogIdentityErrors), ErrorMessageResourceName = "signin_password_req")]
     public string Password { get; set; }
     
     public bool RememberMe { get; set; }

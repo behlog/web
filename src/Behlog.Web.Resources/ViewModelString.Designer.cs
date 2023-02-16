@@ -61,7 +61,7 @@ namespace Behlog.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MaxLen error.
+        ///   Looks up a localized string similar to تعداد کاراکترها بیش از حد مجاز است..
         /// </summary>
         public static string MaxLen {
             get {
@@ -70,7 +70,7 @@ namespace Behlog.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This filed is Required..
+        ///   Looks up a localized string similar to *.
         /// </summary>
         public static string Required {
             get {

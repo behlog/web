@@ -1,7 +1,7 @@
 using Behlog.Extensions;
+using Behlog.Web.Services.Contracts;
 
 namespace Behlog.Web.Identity;
-using Behlog.Web.Services.Contracts;
 
 [Area(WebsiteAreaNames.Identity)]
 [Route("[area]")]
@@ -9,7 +9,11 @@ public class IdentityController : Controller
 {
     private readonly IIdyfaAuthManager _auth;
     private readonly IUserIdentityService _userIdentityService;
-    
+
+    public const string Name = "Identity";
+    public const string ActionLogin = nameof(Login);
+    public const string ActionLogout = nameof(Logout);
+
     public IdentityController(
         IIdyfaAuthManager auth, IUserIdentityService userIdentityService)
     {
