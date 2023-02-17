@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
@@ -33,7 +33,7 @@
         <HintPath>..\..\..\admin\src\Behlog.Web.Admin\bin\Debug\net6.0\Behlog.Web.Admin.Models.dll</HintPath>
       </Reference>
 
-      <Reference Include="Idyfa.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <Reference Include="Idyfa.Core, Version=0.0.1.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\..\Idyfa\src\Idyfa.Core\bin\Debug\net6.0\Idyfa.Core.dll</HintPath>
       </Reference>
       
