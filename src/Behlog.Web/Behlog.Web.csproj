@@ -17,6 +17,9 @@
       <Reference Include="Behlog.Cms.EntityFrameworkCore.SQLite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\cms\src\Behlog.Cms.EntityFrameworkCore.SQLite\bin\Debug\net6.0\Behlog.Cms.EntityFrameworkCore.SQLite.dll</HintPath>
       </Reference>
+      <Reference Include="Behlog.Cms.EntityFrameworkCore.SqlServer">
+        <HintPath>..\..\..\cms\src\Behlog.Cms.EntityFrameworkCore.SqlServer\bin\Debug\net6.0\Behlog.Cms.EntityFrameworkCore.SqlServer.dll</HintPath>
+      </Reference>
       <Reference Include="Behlog.Cms.Resources, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\cms\src\Behlog.Cms.Resources\bin\Debug\net6.0\Behlog.Cms.Resources.dll</HintPath>
       </Reference>
@@ -40,6 +43,9 @@
       <Reference Include="Idyfa.EntityFrameworkCore.SQLite, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\..\Idyfa\src\Idyfa.EntityFrameworkCore.SQLite\bin\Debug\net6.0\Idyfa.EntityFrameworkCore.SQLite.dll</HintPath>
       </Reference>
+      <Reference Include="Idyfa.EntityFrameworkCore.SqlServer">
+        <HintPath>..\..\..\..\Idyfa\src\Idyfa.EntityFrameworkCore.SqlServer\bin\Debug\net6.0\Idyfa.EntityFrameworkCore.SqlServer.dll</HintPath>
+      </Reference>
       <Reference Include="Idyfa.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\..\Idyfa\src\Idyfa.Extensions\bin\Debug\net6.0\Idyfa.Extensions.dll</HintPath>
       </Reference>
@@ -52,6 +58,7 @@
         <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8" />

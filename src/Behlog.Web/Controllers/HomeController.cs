@@ -11,7 +11,7 @@ public class HomeController : Controller
     
     public HomeController(IImageSliderComponent imageSliderComponent, BehlogWebsite website)
     {
-        _imageSliderComponent = imageSliderComponent ?? throw new ArgumentNullException(nameof(imageSliderComponent));
+        //_imageSliderComponent = imageSliderComponent ?? throw new ArgumentNullException(nameof(imageSliderComponent));
         _website = website ?? throw new ArgumentNullException(nameof(website));
     }
 
@@ -21,7 +21,7 @@ public class HomeController : Controller
         // await _imageSliderComponent.InstallAsync(
         //     )
 
-        var imageSlider = await _imageSliderComponent.LoadAsync(_website.Id, "fa", "homeslider");
+        //var imageSlider = await _imageSliderComponent.LoadAsync(_website.Id, "fa", "homeslider");
 
         return View();
     }
