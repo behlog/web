@@ -13,7 +13,7 @@ public class BehlogWebComponent<TUpdateModel, TViewModel, TAttributeType>
         where TViewModel : WebComponentViewModel<TAttributeType>, new()
         where TAttributeType : class
 {
-    private readonly IBehlogMediator _behlog;
+    protected readonly IBehlogMediator _behlog;
     
     public BehlogWebComponent(IBehlogMediator behlog)
     {

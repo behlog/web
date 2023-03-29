@@ -14,6 +14,7 @@ public static class ServiceProvider
     {
         services.AddScoped<IImageSliderComponent, ImageSliderComponent>();
         services.AddScoped<IIntroBoxComponent, IntroBoxComponent>();
+        services.AddScoped<ILatestContentsComponent, LatestContentsComponent>();
 
         return services;
     }

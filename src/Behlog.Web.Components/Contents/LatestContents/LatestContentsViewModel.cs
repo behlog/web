@@ -16,6 +16,7 @@ public class LatestContentsAttributes
 public class LatestContentsItemViewModel
 {
     public Guid ContentId { get; set; }
+    public Guid LangId { get; set; }
     public string Title { get; set; }
     public string AltTitle { get; set; }
     public string Slug { get; set; }
@@ -23,6 +24,7 @@ public class LatestContentsItemViewModel
     public string CoverPhoto { get; set; }
     public string? IconName { get; set; }
     public string ContentTypeName { get; set; }
+    public string ContentTypeTitle { get; set; }
     public string Url { get; set; }
 }
 
