@@ -33,19 +33,19 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
-//var sqliteCfg = idyfaOptions.IdyfaDbConfig.Databases.FirstOrDefault(_ =>
-//    _.Name.Equals("SQLite", StringComparison.InvariantCultureIgnoreCase));
-var sqlServerCfg = idyfaOptions.IdyfaDbConfig.Databases.FirstOrDefault(_ =>
-    _.Name.Equals("SqlServer", StringComparison.InvariantCultureIgnoreCase));
+var sqliteCfg = idyfaOptions.IdyfaDbConfig.Databases.FirstOrDefault(_ =>
+    _.Name.Equals("SQLite", StringComparison.InvariantCultureIgnoreCase));
+// var sqlServerCfg = idyfaOptions.IdyfaDbConfig.Databases.FirstOrDefault(_ =>
+//     _.Name.Equals("SqlServer", StringComparison.InvariantCultureIgnoreCase));
 builder.Services.AddIdyfaEntityFrameworkCore();
-//builder.Services.AddIdyfaSQLiteDatabase(sqliteCfg);
+builder.Services.AddIdyfaSQLiteDatabase(sqliteCfg);
 //builder.Services.AddIdyfaCore(idyfaOptions);
 builder.Services.AddIdyfaCore(idyfaOptions);
-builder.Services.AddIdyfaSqlServerDatabase(sqlServerCfg);
+// builder.Services.AddIdyfaSqlServerDatabase(sqlServerCfg);
 builder.Services.AddBehlogCore(config);
 builder.Services.AddBehlogCms();
-//builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
-builder.Services.AddBehlogCmsEntityFrameworkCoreSqlServer(behlogOptions.DbConfig);
+builder.Services.AddBehlogCmsEntityFrameworkCoreSQLite(behlogOptions.DbConfig);
+// builder.Services.AddBehlogCmsEntityFrameworkCoreSqlServer(behlogOptions.DbConfig);
 builder.Services.AddBehlogCmsEntityFrameworkCoreReadStores();
 builder.Services.AddBehlogCmsEntityFrameworkCoreWriteStores();
 builder.Services.AddBehlogWebCore();
