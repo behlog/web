@@ -9,117 +9,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>ورود به بهلاگ</title>
-    <link rel="shortcut icon" type="image/x-icon" href="~/behlog/assets/images/ico/favicon.ico">
-    <meta name="theme-color" content="#5A8DEE">
+    <link rel="shortcut icon" type="image/x-icon" href="~/behlog/css/images/ico/favicon.ico">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/vendors/css/vendors.min.css">
-    <!-- END: Vendor CSS-->
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/css/themes/semi-dark-layout.css">
-    <!-- END: Theme CSS-->
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="~/behlog/assets/css/pages/authentication.css">
-    <!-- END: Page CSS-->
-
+    <link rel="stylesheet" type="text/css" href="~/behlog/css/app.css">
 </head>
 <!-- END: Head-->
-<body class="vertical-layout vertical-menu-modern semi-dark-layout 1-column  navbar-sticky footer-static bg-full-screen-image  blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column" data-layout="semi-dark-layout">
 
-    <!-- BEGIN: Content-->
-    <div class="app-content content">
-        <div class="content-overlay"></div>
-        <div class="content-wrapper">
-            <div class="content-header row">
-            </div>
-            <div class="content-body">
-                <!-- login page start -->
-                <section id="auth-login" class="row flexbox-container">
-                    <div class="col-xl-8 col-11">
-                        <div class="card bg-authentication mb-0">
-                            <div class="row m-0">
-                                <!-- left section-login -->
-                                <div class="col-md-6 col-12 px-0">
-                                    <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
-                                        <div class="card-header pb-1">
-                                            <div class="card-title">
-                                                <h4 class="text-center mb-2">
-                                                    ورود به بهلاگ
-                                                </h4>
-                                            </div>
-                                        </div>
-                                        <div class="card-content">
-                                            <div class="card-body">
-                                                <form asp-controller="@IdentityController.Name" 
-                                                    asp-action="@IdentityController.ActionLogin" 
-                                                    enctype="application/x-www-form-urlencoded"
-                                                    asp-antiforgery="true">
-
-                                                    <div class="form-group mb-50">
-                                                        <label asp-for="UserName" class="text-bold-700">نام کاربری</label>
-                                                        <input asp-for="UserName" type="username" class="form-control" placeholder="نام کاربری شما" dir="ltr">
-                                                        <span asp-validation-for="UserName"></span>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label asp-for="Password" class="text-bold-700">گذرواژه</label>
-                                                        <input asp-for="Password" type="password" class="form-control" placeholder="کلمه عبور" dir="ltr">
-                                                        <span asp-validation-for="Password"></span>
-                                                    </div>
-                                                    <div class="form-group d-flex flex-md-row flex-column justify-content-between align-items-center">
-                                                        <div class="text-left">
-                                                            <div class="checkbox checkbox-sm">
-                                                                <input asp-for="RememberMe" type="checkbox" class="form-check-input">
-                                                                <label class="checkboxsmall" for="exampleCheck1"><small>مرا به خاطر بسپار</small></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="text-right line-height-2"><a href="auth-forgot-password.html" class="card-link"><small>گذرواژه تان را فراموش کردین؟</small></a></div>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary glow w-100 position-relative">ورود<i id="icon-arrow" class="bx bx-left-arrow-alt"></i></button>
-                                                </form>
-                                                <hr>
-                                                <div class="text-center"><small class="mr-25">حسابی ندارید؟</small><a href="#"><small>ثبت نام</small></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- right section image -->
-                                <div class="col-md-6 d-md-block d-none text-center align-self-center p-3">
-                                    <div class="card-content">
-                                        <img class="img-fluid" src="~/behlog/assets/images/pages/login.png" alt="branding logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- login page ends -->
-
+<body class="login">
+<div class="container sm:px-10">
+    <div class="block xl:grid grid-cols-2 gap-4">
+        <!-- BEGIN: Login Info -->
+        <div class="hidden xl:flex flex-col min-h-screen">
+            <a href="" class="-intro-x flex items-center pt-5">
+                <img alt="Tinker Tailwind HTML Admin Template" class="w-6" src="~/behlog/images/logo.svg">
+                <span class="text-white text-lg mr-3">Beh<span class="font-medium">log</span> </span>
+            </a>
+            <div class="my-auto">
+                <img alt="Tinker Tailwind HTML Admin Template" class="-intro-x w-1/2 -mt-16" src="~/behlog/images/illustration.svg">
+                <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
+                    مدیریت وب سایت خود را
+                    <br> به بِهلاگ بسپارید!
+                </div>
+                <div class="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-gray-500">
+                    وب سایت های خود را از یک جا مدیریت کنید!
+                </div>
             </div>
         </div>
+        <!-- END: Login Info -->
+        <!-- BEGIN: Login Form -->
+        <form class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0"
+              asp-controller="@IdentityController.Name"
+              asp-action="@IdentityController.ActionLogin"
+              enctype="application/x-www-form-urlencoded"
+              asp-antiforgery="true">
+            
+            <div class="my-auto mx-auto xl:mr-20 bg-white dark:bg-dark-1 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
+                <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-right">
+                    ورود - بِهلاگ
+                </h2>
+                <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">
+                    وب سایت های خود را در یک مکان مدیریت کنید!
+                </div>
+                <div class="intro-x mt-8 ">
+                    <input type="text" asp-for="UserName" class="intro-x login__input form-control py-3 px-4 border-gray-300 block " placeholder="نام کاربری">
+                    <span asp-validation-for="UserName"></span>
+                    <input type="password" asp-for="Password" class="intro-x login__input form-control py-3 px-4 border-gray-300 block mt-4 " placeholder="کلمه عبور">
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4 ">
+                    <div class="flex items-center ml-auto ">
+                        <input asp-for="RememberMe" type="checkbox" class="form-check-input border ml-2">
+                        <label class="cursor-pointer select-none " asp-for="RememberMe">مرا به خاطر داشته باش</label>
+                    </div>
+                    <a href="#">فراموشی کلمه عبور؟</a>
+                </div>
+                <div class="intro-x mt-5 xl:mt-8 text-right xl:text-right">
+                    <button class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:ml-3 align-top ">ورود</button>
+                    <button class="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 align-top ">ثبت نام</button>
+                </div>
+                <div class="intro-x mt-10 xl:mt-24 text-gray-700 dark:text-gray-600 text-right xl:text-right">
+                    با ورود شما تمامی شرایط زیر را میپذیرید
+                    <br>
+                    <a class="text-theme-25 dark:text-theme-22" href="#">قوانین و مقررات</a> و <a class="text-theme-25 dark:text-theme-22" href="#">حریم شخصی</a>
+                </div>
+            </div>
+        </form>
+        <!-- END: Login Form -->
     </div>
-    <!-- END: Content-->
-    <!-- BEGIN: Theme JS-->
-    <script src="~/behlog/assets/js/scripts/configs/vertical-menu-dark.js"></script>
-    <script src="~/behlog/assets/js/core/app-menu.js"></script>
-    <script src="~/behlog/assets/js/core/app.js"></script>
-    <script src="~/behlog/assets/js/scripts/components.js"></script>
-    <script src="~/behlog/assets/js/scripts/footer.js"></script>
+</div>
+<!-- BEGIN: Dark Mode Switcher-->
+<div data-url="login-dark-login.html" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 left-0 box dark:bg-dark-2 border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 ml-10">
+    <div class="ml-4 text-gray-700 dark:text-gray-300">حالت تیره</div>
+    <div class="dark-mode-switcher__toggle border"></div>
+</div>
+<!-- END: Dark Mode Switcher-->
+<!-- BEGIN: JS Assets-->
+<script src="~/behlog/js/app.js"></script>
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<partial name="_validationScripts" />
+<!-- END: Theme JS-->
 
-    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
-    <partial name="_validationScripts" />
-    <!-- END: Theme JS-->
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#UserName').focus();
-        });
-    </script>
-
-  </body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#UserName').focus();
+    });
+</script>
+<!-- END: JS Assets-->
+</body>
 </html>
