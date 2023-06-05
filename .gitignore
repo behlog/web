@@ -352,6 +352,7 @@ MigrationBackup/
 .ionide/
 
 src/Behlog.Web/wwwroot/behlog
+src/Behlog.Web/wwwroot/uploads
 
 *.db-shm
 *.db-wal
